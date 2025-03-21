@@ -1,0 +1,81 @@
+{
+    "categories": [
+        {
+            "sequence": 1,
+            "name": "Laptop / Refurbished Laptop",
+            "categoryPageUrl": "/shop/category/refurbished-laptop-13"
+        },
+        {
+            "sequence": 2,
+            "name": "Desktop / Refurbished Desktop",
+            "categoryPageUrl": "/shop/category/desktop-refurbished-desktop-15"
+        },
+        {
+            "sequence": 3,
+            "name": "Accessories",
+            "categoryPageUrl": "/shop/category/accessories-32"
+        }
+    ],
+    "products": [
+        {
+            "sequence": 1,
+            "title": "HP EliteBook 840 G5 i5-8th Gen",
+            "description": ">Graphic Processor : Intel HD Graphics 520\n>USB Port : 2 x USB 2.0\n>Screen Size : 14\" Inches\n>Screen Type : LED HD\n>Weight : 1.4 kg\n>Optical Storage : Webcam, WiFi\n>Original Window ",
+            "imagePath": "/web/image?model=product.template&id=2244&field=image_1920",
+            "imageAltTitle": "HP EliteBook 840 G5 i5-8th Gen",
+            "price": 21200,
+            "category": "",
+            "productPageUrl": "/shop/hp-elitebook-840-g5-i5-8th-gen-2244"
+        },
+        {
+            "sequence": 2,
+            "title": "Lenovo ThinkPad T470 i5-7th Gen",
+            "description": ">Graphic Processor : Intel HD Graphics 520\n>USB Port : 3x USB 2.0\n>Screen Size : 14.0 Inches (35.56 cm)\n>Screen Type : LED HD\n>Weight : 1.6kg\n>Optical Storage : Webcam, WiFi\n>Original Window ",
+            "imagePath": "/web/image?model=product.template&id=1888&field=image_1920",
+            "imageAltTitle": "Lenovo ThinkPad T470 i5-7th Gen",
+            "price": 13156,
+            "category": "",
+            "productPageUrl": "/shop/lenovo-thinkpad-t470-i5-7th-gen-1888"
+        },
+        {
+            "sequence": 3,
+            "title": "Dell Latitude 5420 i5-11th Gen",
+            "description": ">Integrated Graphic Card\n>Anti Glare Screen, Backlit Keyboard\n>Display size: 14.0 inches\n>Weight 1.5 KG\n>Bluetooth, 802.11ax, 2.4 GHz Radio Frequency\n>Window 10",
+            "imagePath": "/web/image?model=product.template&id=1966&field=image_1920",
+            "imageAltTitle": "Dell Latitude 5420 i5-11th Gen",
+            "price": 23300,
+            "category": "",
+            "productPageUrl": "/shop/dell-latitude-5420-i5-11th-gen-1966"
+        },
+        {
+            "sequence": 4,
+            "title": "Dell Latitude 5400 i5-8th Gen",
+            "description": ">Graphic Processor : Intel HD Graphics 620\n>USB Port : 4 Nos C- Type port, 3 Nos, USB Port, 1 Nos, HDMI port\n>Screen Size : 14\"Inches (35.56 cm)\n>Screen Type : LED HD\n>Weight : 1'57 kg ( Feather Light)\n>Optical Storage : Bluetooth, Webcam, WiFi\n>Power Supply : 65 wh (4 cell Battery)\n>Original Window 10\n>Original Power Cable\n>Original Charge",
+            "imagePath": "/web/image?model=product.template&id=2900&field=image_1920",
+            "imageAltTitle": "Dell Latitude 5400 i5-8th Gen",
+            "price": 17161,
+            "category": "Laptop / Refurbished Laptop",
+            "productPageUrl": "/shop/dell-latitude-5400-i5-8th-gen-2900"
+        },
+        {
+            "sequence": 5,
+            "title": "Lenovo ThinkPad T480 i5-8th Gen",
+            "description": ">Graphic Processor : Intel UHD 620\n>USB Port : 3 x USB 2.0\n>Screen Size : 14\" (35.56 cm) display\n>Screen Type : LED HD\n>Weight : 1.55 kg\n>Optical Storage : Webcam, WiFi\n>Original Window",
+            "imagePath": "/web/image?model=product.template&id=1645&field=image_1920",
+            "imageAltTitle": "Lenovo ThinkPad T480 i5-8th Gen",
+            "price": 14872,
+            "category": "",
+            "productPageUrl": "/shop/lenovo-thinkpad-t480-i5-8th-gen-1645"
+        },
+        {
+            "sequence": 6,
+            "title": "HP 19-Inch Monitor (Refurbished)",
+            "description": false,
+            "imagePath": "/web/image?model=product.template&id=2435&field=image_1920",
+            "imageAltTitle": "HP 19-Inch Monitor (Refurbished)",
+            "price": 2889,
+            "category": "",
+            "productPageUrl": "/shop/hp-19-inch-monitor-refurbished-2435"
+        }
+    ]
+}
