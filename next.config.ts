@@ -1,7 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export", // Enables static export
   images: {
     domains: ["localhost", "www.antservices.in"], // ✅ Add both localhost & production domain
     remotePatterns: [
