@@ -1,4 +1,4 @@
-# Visualizer Demo
+# A&T Services Inc. Landing Page Demo
 
 This project showcases a demo functionality of a A&T Services Inc. landing page.
 
