@@ -35,11 +35,11 @@ export default function Products({ products }: { products: apiProductRes[] }) {
               products.map((product: apiProductRes, index: number) => {
                 return (
                   <div className="card fade-in-anim" data-delay="0" key={index}>
-                    <Image src={`$https://www.antservices.in${product.imagePath}`} width={1920} height={1000} alt={product.imageAltTitle} title={product.imageAltTitle} />
+                    <Image src={`https://www.antservices.in${product.imagePath}`} width={1920} height={1000} alt={product.imageAltTitle} title={product.imageAltTitle} />
                     <p className="title">{product.title}</p>
                     <p className="price">₹ {product.price}</p>
                     <div className="cta">
-                      <a href={`$https://www.antservices.in${product.productPageUrl}`} target="_blank" className="btn btn-red">Buy Now</a>
+                      <a href={`https://www.antservices.in${product.productPageUrl}`} target="_blank" className="btn btn-red">Buy Now</a>
                       <a onClick={(e)=>{redirectToWhatsapp(e, product.title)}} className="btn">Chat Now</a>
                     </div>
                   </div>
