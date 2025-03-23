@@ -316,7 +316,12 @@ export default function LP( { products, categories }: { products: apiProductRes[
     // Handle form submission
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      const payload = formData;
+      const payload = {
+        name: formData.name,
+        contact: formData.contact,
+        email: formData.email,
+        requirement: formData.msg,
+      };
   
       try {
         // const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL_LIVE}/post_contact_us`, {

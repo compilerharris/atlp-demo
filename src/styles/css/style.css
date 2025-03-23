@@ -4691,6 +4691,7 @@ footer .branches-wrp p{
   width: 60%;
   margin-top: 7vw;
   margin-left: 2vw;
+  z-index: 2;
 }
 .banner .text-content .heading-02 {
   font-size: 4vw;
