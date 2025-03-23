@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["localhost", "www.antservices.in"], // ✅ Add both localhost & production domain
+    domains: ["localhost", "www.antservices.in"],
     remotePatterns: [
       {
         protocol: "http",

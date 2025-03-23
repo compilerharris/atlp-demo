@@ -28,7 +28,7 @@ export default async function Home() {
     products: [] 
   };
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/get_top_performing`,{ cache: "no-store" });
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL_LIVE}/get_top_performing`,{ cache: "no-store" });
     if (!res.ok) throw new Error("Failed to fetch data");
     props = await res.json();
   } catch (error) {

@@ -614,17 +614,17 @@ export default function LP( { products, categories }: { products: apiProductRes[
                         {/* by brands */}
                         <div className="shopCard brands">
                             <div className="shopItem fade-in-anim">
-                                <Image src="/assets/images/hp.webp" width={1920} height={1000} alt='Dell Refurbished Laptops' />
+                                <Image src="/assets/images/dell.png" width={1920} height={1000} alt='Dell Refurbished Laptops' />
                                 <h2>Dell Refurbished Laptops</h2>
                                 <a href="https://www.antservices.in/shop?search=dell" target="_blank" className="btn btn-red">SHOP NOW</a>
                             </div>
                             <div className="shopItem fade-in-anim">
-                                <Image src="/assets/images/hp.webp" width={1920} height={1000} alt='HP Refurbished Laptops' />
+                                <Image src="/assets/images/hp.png" width={1920} height={1000} alt='HP Refurbished Laptops' />
                                 <h2>HP Refurbished Laptops</h2>
                                 <a href="https://www.antservices.in/shop?search=hp" target="_blank" className="btn btn-red">SHOP NOW</a>
                             </div>
                             <div className="shopItem fade-in-anim">
-                                <Image src="/assets/images/hp.webp" width={1920} height={1000} alt='Lenovo Refurbished Laptops' />
+                                <Image src="/assets/images/lenovo.png" width={1920} height={1000} alt='Lenovo Refurbished Laptops' />
                                 <h2>Lenovo Refurbished Laptops</h2>
                                 <a href="https://www.antservices.in/shop?search=lenovo" target="_blank" className="btn btn-red">SHOP NOW</a>
                             </div>
