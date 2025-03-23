@@ -402,6 +402,9 @@ export default function LP( { products, categories }: { products: apiProductRes[
 
             {/* slider banner */}
             <div className="banner">
+                <div className="object object-05" data-movement-desktop="-120" data-movement-mobile="-120">
+                    <Image src="/assets/images/object-02.svg" width={1920} height={1000} alt='Element' />
+                </div>
                 <div className="text-content">
                     <h1 className="heading-02">Affordable & Trusted <br /> That’s A&T!</h1>
                     <p className="p1">Your Partner in Quality Without Compromise!</p>
