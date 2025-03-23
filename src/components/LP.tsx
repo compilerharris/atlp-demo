@@ -319,7 +319,8 @@ export default function LP( { products, categories }: { products: apiProductRes[
       const payload = formData;
   
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL_LIVE}/post_contact_us`, {
+        // const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL_LIVE}/post_contact_us`, {
+        const response = await fetch(`https://www.antservices.in/post_contact_us`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -406,7 +407,7 @@ export default function LP( { products, categories }: { products: apiProductRes[
                     <p className="p1">Your Partner in Quality Without Compromise!</p>
                     <p className="p2">Hassle-Free 1-Year Warranty <br /> Affordable Prices, No Hidden Costs <br /> Quick Support, Always Ready</p>
                     <div>
-                        <a href={`${process.env.NEXT_PUBLIC_BASE_URL_LIVE}/shop`} target='_blank' className="btn btn-red">SHOP NOW</a>
+                        <a href={`https://www.antservices.in/shop`} target='_blank' className="btn btn-red">SHOP NOW</a>
                         <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => redirectToWhatsapp(e, `Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</a>
                     </div>
                 </div>
@@ -556,7 +557,7 @@ export default function LP( { products, categories }: { products: apiProductRes[
                                                 <div className="category-card">
                                                     <h2>{category.name}</h2>
                                                     <p>Office Laptop one liner</p>
-                                                    <a href={`${process.env.NEXT_PUBLIC_BASE_URL_LIVE}${category.categoryPageUrl}`} className="btn btn-red">SHOP NOW</a>
+                                                    <a href={`https://www.antservices.in${category.categoryPageUrl}`} className="btn btn-red">SHOP NOW</a>
                                                 </div>
                                             </div>
                                         </SwiperSlide>
@@ -586,7 +587,7 @@ export default function LP( { products, categories }: { products: apiProductRes[
                                 </span>
                             </h2>
                             <p className="fade-in-anim">At <strong>A&T Services Inc.</strong>, we take pride in providing high-quality refurbished computers and laptops at unbeatable prices With years of experience in the Indian IT industry, we’ve built a strong reputation for offering reliable hardware solutions, backed by prompt, expert support. Our clients trust us not only for our exceptional products but also for our outstanding customer service, often referring us to others for their hardware needs.</p>
-                            <a href={`${process.env.NEXT_PUBLIC_BASE_URL_LIVE}/about-us`} target='_blank' className="btn btn-red">READ MORE</a>
+                            <a href={`https://www.antservices.in/about-us`} target='_blank' className="btn btn-red">READ MORE</a>
                         </div>
                     </div>
                 </div>
