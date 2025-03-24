@@ -316,21 +316,18 @@ export default function LP( { products, categories }: { products: apiProductRes[
     // Handle form submission
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      const payload = {
-        name: formData.name,
-        contact: formData.contact,
-        email: formData.email,
-        requirement: formData.msg,
-      };
+
+      const formD = new FormData();
+      formD.append('name',formData.name )
+      formD.append('contact',formData.contact )
+      formD.append('email',formData.email )
+      formD.append('requirement',formData.msg )
   
       try {
         // const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL_LIVE}/post_contact_us`, {
         const response = await fetch(`https://www.antservices.in/post_contact_us`, {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(payload),
+          body: formD,
         });
   
         const data = await response.json();
