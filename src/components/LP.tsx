@@ -17,10 +17,12 @@ import "swiper/css/pagination";
 
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { apiCategoryRes, apiProductRes } from '@/app/page';
+import { useRouter } from "next/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function LP({ products, categories }: { products: apiProductRes[]; categories: apiCategoryRes[] }) {
+    const router = useRouter();
 
     const redirectToWhatsapp = (e: React.MouseEvent<HTMLAnchorElement>, msg: string) => {
         e.preventDefault();
@@ -305,7 +307,18 @@ export default function LP({ products, categories }: { products: apiProductRes[]
         //     }
         // };
 
-        // window.addEventListener("scroll", handleWAScroll);
+        const handleWAScroll = () => {
+            const button = document.getElementById("df-btn-cont");
+            if (button) {
+              if (window.scrollY > 300) {
+                button.classList.add("show");
+              } else {
+                button.classList.remove("show");
+              }
+            }
+        };
+        window.addEventListener("scroll", handleWAScroll);
+
 
         return () => {
             $(".navbar-burger").off("click");
@@ -316,7 +329,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
             window.removeEventListener("scroll", handleScroll);
             Fancybox.destroy();
             window.removeEventListener("resize", handleResize);
-            // window.removeEventListener("scroll", handleWAScroll);
+            window.removeEventListener("scroll", handleWAScroll);
         };
     }, []);
 
@@ -405,6 +418,9 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                     clearInterval(popupInterval.current);
                     popupInterval.current = null;
                 }
+                if (redirectTo == "/thankyou") {
+                    router.push("/thankyou");
+                }
                 window.location.href = redirectTo || "/thankyou";
             } else {
                 console.log(data.message || "Something went wrong. Please try again.");
@@ -431,10 +447,10 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                 <div id="main_navigation" className="navbar-menu">
                     <div className="navbar-start">
                         <a className="navbar-item" href="javascript:void(0)" data-tab="usp">USP</a>
-                        <a className="navbar-item" href="javascript:void(0)" data-tab="products">Products</a>
+                        <a className="navbar-item desktop-item" href="javascript:void(0)" data-tab="products">Products</a>
                         <a className="navbar-item" href="javascript:void(0)" data-tab="video">Video</a>
-                        <a className="navbar-item" href="javascript:void(0)" data-tab="categories">Categories</a>
-                        <a className="navbar-item" href="javascript:void(0)" data-tab="about">About Us</a>
+                        <a className="navbar-item desktop-item" href="javascript:void(0)" data-tab="categories">Categories</a>
+                        <a className="navbar-item desktop-item" href="javascript:void(0)" data-tab="about">About Us</a>
                         <a className="navbar-item" href="javascript:void(0)" data-tab="shop">Shop By</a>
                         <a className="navbar-item" href="javascript:void(0)" data-tab="testimonials">Testimonials</a>
                         <a className="navbar-item" href="javascript:void(0)" data-tab="contact">Contact Us</a>
@@ -480,14 +496,19 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                     768: { slidesPerView: 1 },
                     1200: { slidesPerView: 1 },
                 }}
-                className="counter-wrp margin-t-1 anim_fade_in_wrp swiper-dot"
+                className="counter-wrp margin-t-1 anim_fade_in_wrp"
             >
                 <SwiperSlide>
                     <div className="banner">
                         <div className="object object-05" data-movement-desktop="-120" data-movement-mobile="-120">
                             <Image src="/assets/images/object-02.svg" width={1920} height={1000} alt='Element' />
                         </div>
-                        <div className="text-content anim_fade_in">
+                        <div className="text-content">
+                            {/* <h1 className="heading-02 text-line-section">
+                                <span className="text-line-wrp mob-2-line">
+                                    <span className="text-line" data-delay={0}>Affordable & Trusted <br /> That’s A&T!</span>
+                                </span>
+                            </h1> */}
                             <h1 className="heading-02">Affordable & Trusted <br /> That’s A&T!</h1>
                             <p className="p1">Your Partner in Quality Without Compromise!</p>
                             <p className="p2">Hassle-Free 1-Year Warranty <br /> Affordable Prices, No Hidden Costs <br /> Quick Support, Always Ready</p>
@@ -548,52 +569,64 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                             }}
                             className="counter-wrp margin-t-1 anim_fade_in_wrp swiper-dot"
                         >
-                            <SwiperSlide>
-                                <div className="counter-innr">
+                                {/* <div className="counter-innr">
                                     <p className="p1 is-white">1</p>
                                     <p className="p2 para-01 is-white font-300-space-0">Year Warranty</p>
+                                </div> */}
+                            <SwiperSlide>
+                                <div className="counter-innr">
+                                    <Image src="/assets/images/icon1.png" alt="" width={500} height={300} />
+                                    {/* <p className="p1 is-white">1</p> */}
+                                    <p className="p2 is-white">1 1 Year Warranty</p>
                                 </div>
                             </SwiperSlide>
                             {/* <SwiperSlide>
                                 <div className="counter-innr">
-                                    <p className="p1 is-white">Affordable Pricing</p>
-                                    <p className="p2 para-01 is-white font-300-space-0">Get the best value without compromising on quality</p>
+                                    <Image src="/assets/images/icon1.png" alt="" width={500} height={300} />
+                                    // <p className="p1 is-white">Affordable Pricing</p>
+                                    <p className="p2 is-white">Affordable Pricing Get the best value without compromising on quality</p>
                                 </div>
                             </SwiperSlide> */}
                             <SwiperSlide>
                                 <div className="counter-innr">
-                                    <p className="p1 is-white">72</p>
-                                    <p className="p2 para-01 is-white font-300-space-0">Quality Checks</p>
+                                    <Image src="/assets/images/icon1.png" alt="" width={500} height={300} />
+                                    {/* <p className="p1 is-white">72</p> */}
+                                    <p className="p2 is-white">72 Quality Checks</p>
                                 </div>
                             </SwiperSlide>
                             {/* <SwiperSlide>
                                 <div className="counter-innr">
-                                    <p className="p1 is-white">Quick Support</p>
-                                    <p className="p2 para-01 is-white font-300-space-0">Hassle-free customer assistance whenever you need it</p>
+                                    <Image src="/assets/images/icon1.png" alt="" width={500} height={300} />
+                                    // <p className="p1 is-white">Quick Support</p>
+                                    <p className="p2 is-white">Quick Support Hassle-free customer assistance whenever you need it</p>
                                 </div>
                             </SwiperSlide> */}
                             <SwiperSlide>
                                 <div className="counter-innr">
-                                    <p className="p1 is-white">10</p>
-                                    <p className="p2 para-01 is-white font-300-space-0">Day Replacement</p>
+                                    <Image src="/assets/images/icon1.png" alt="" width={500} height={300} />
+                                    {/* <p className="p1 is-white">10</p> */}
+                                    <p className="p2 is-white">10 Day Replacement</p>
                                 </div>
                             </SwiperSlide>
                             {/* <SwiperSlide>
                                 <div className="counter-innr">
-                                    <p className="p1 is-white">Quality Assurance</p>
-                                    <p className="p2 para-01 is-white font-300-space-0">We stand by our commitment to superior standards</p>
+                                    <Image src="/assets/images/icon1.png" alt="" width={500} height={300} />
+                                    // <p className="p1 is-white">Quality Assurance</p>
+                                    <p className="p2 is-white">Quality Assurance We stand by our commitment to superior standards</p>
                                 </div>
                             </SwiperSlide> */}
                             <SwiperSlide>
                                 <div className="counter-innr">
-                                    <p className="p1 is-white">AMC</p>
-                                    <p className="p2 para-01 is-white font-300-space-0">Reliable After-Sales Service</p>
+                                    <Image src="/assets/images/icon1.png" alt="" width={500} height={300} />
+                                    {/* <p className="p1 is-white">AMC</p> */}
+                                    <p className="p2 is-white">AMC Reliable After-Sales Service</p>
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide>
                                 <div className="counter-innr">
-                                    <p className="p1 is-white">AMC</p>
-                                    <p className="p2 para-01 is-white font-300-space-0">Reliable After-Sales Service</p>
+                                    <Image src="/assets/images/icon1.png" alt="" width={500} height={300} />
+                                    {/* <p className="p1 is-white">AMC</p> */}
+                                    <p className="p2 is-white">AMC Reliable After-Sales Service</p>
                                 </div>
                             </SwiperSlide>
                         </Swiper>
@@ -603,7 +636,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
             {/* usp end */}
 
             {/* products */}
-            <Products products={products} openContactForm={openContactForm}/>
+            <Products products={products} openContactForm={openContactForm} />
             {/* products ends */}
 
             {/* video */}
