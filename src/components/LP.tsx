@@ -17,7 +17,6 @@ import "swiper/css/pagination";
 
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { apiCategoryRes, apiProductRes } from '@/app/page';
-import Script from 'next/script';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,7 +30,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
     }
 
     // whatsapp
-    const [showWAButton, setShowWAButton] = useState(false);
+    // const [showWAButton, setShowWAButton] = useState(false);
 
     // contact us
     const [isOpen, setIsOpen] = useState(false);
