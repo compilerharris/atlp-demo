@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState} from 'react';
+import { useEffect, useRef, useState } from 'react';
 import $ from 'jquery';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -17,10 +17,11 @@ import "swiper/css/pagination";
 
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { apiCategoryRes, apiProductRes } from '@/app/page';
+import Script from 'next/script';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function LP( { products, categories }: { products: apiProductRes[]; categories: apiCategoryRes[] }) {
+export default function LP({ products, categories }: { products: apiProductRes[]; categories: apiCategoryRes[] }) {
 
     const redirectToWhatsapp = (e: React.MouseEvent<HTMLAnchorElement>, msg: string) => {
         e.preventDefault();
@@ -28,6 +29,15 @@ export default function LP( { products, categories }: { products: apiProductRes[
         const message = encodeURIComponent(`${msg}`);
         window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
     }
+
+    // whatsapp
+    const [showWAButton, setShowWAButton] = useState(false);
+
+    // contact us
+    const [isOpen, setIsOpen] = useState(false);
+    const [formSubmitted, setFormSubmitted] = useState( typeof window !== "undefined" && localStorage.getItem("formSubmitted") === "true" );
+    const popupInterval = useRef<NodeJS.Timeout | null>(null);
+
     useEffect(() => {
 
         if (typeof window === "undefined") return;
@@ -284,6 +294,19 @@ export default function LP( { products, categories }: { products: apiProductRes[
 
         window.addEventListener("resize", handleResize);
 
+        // const handleWAScroll = () => {
+        //     const viewportHeight = window.innerHeight;
+        //     const scrollY = window.scrollY;
+      
+        //     if (scrollY > viewportHeight / 2) {
+        //       setShowWAButton(true);
+        //     } else {
+        //       setShowWAButton(false);
+        //     }
+        // };
+      
+        // window.addEventListener("scroll", handleWAScroll);
+
         return () => {
             $(".navbar-burger").off("click");
             $(".navbar-item").off("click");
@@ -293,10 +316,36 @@ export default function LP( { products, categories }: { products: apiProductRes[
             window.removeEventListener("scroll", handleScroll);
             Fancybox.destroy();
             window.removeEventListener("resize", handleResize);
+            // window.removeEventListener("scroll", handleWAScroll);
         };
     }, []);
-    
+
     // contact form
+
+    useEffect(() => {
+        if (formSubmitted) return; // Stop popup if form was submitted
+
+        // First popup appears after 5 seconds
+        const firstPopupTimeout = setTimeout(() => {
+        setIsOpen(true);
+        }, 5000);
+
+        return () => clearTimeout(firstPopupTimeout);
+    }, [formSubmitted]);
+
+    const closeContactPopup = () => {
+        setIsOpen(false);
+        if (!formSubmitted) startPopupInterval();
+    }
+
+    const startPopupInterval = () => {
+        if (!popupInterval.current) {
+          popupInterval.current = setInterval(() => {
+            setIsOpen(true);
+          }, 20000);
+        }
+    };
+
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -306,49 +355,60 @@ export default function LP( { products, categories }: { products: apiProductRes[
 
     // Handle input change
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const { name, value } = e.target;
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: value,
-      }));
+        const { name, value } = e.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
     };
 
     // Handle form submission
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
+        e.preventDefault();
 
-      const formD = new FormData();
-      formD.append('name',formData.name )
-      formD.append('contact',formData.contact )
-      formD.append('email',formData.email )
-      formD.append('requirement',formData.msg )
-  
-      try {
-        // const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL_LIVE}/post_contact_us`, {
-        const response = await fetch(`https://www.antservices.in/post_contact_us`, {
-          method: "POST",
-          body: formD,
-        });
-  
-        const data = await response.json();
-  
-        if (response.ok) {
-          console.log("Thank you for contacting us. We will get back to you soon.");
-          setFormData({
-            name: "",
-            email: "",
-            contact: "",
-            msg: "",
-        })
-        } else {
-            console.log(data.message || "Something went wrong. Please try again.");
+        const formD = new FormData();
+        formD.append('name', formData.name)
+        formD.append('contact', formData.contact)
+        formD.append('email', formData.email)
+        formD.append('requirement', formData.msg)
+
+        try {
+            // const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL_LIVE}/post_contact_us`, {
+            const response = await fetch(`https://www.antservices.in/post_contact_us`, {
+                method: "POST",
+                body: formD,
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                console.log("Thank you for contacting us. We will get back to you soon.");
+                setFormData({
+                    name: "",
+                    email: "",
+                    contact: "",
+                    msg: "",
+                })
+                // Save submission status in localStorage
+                localStorage.setItem("formSubmitted", "true");
+                setFormSubmitted(true);
+                setIsOpen(false);
+
+                // Stop future popups after form submission
+                if (popupInterval.current) {
+                    clearInterval(popupInterval.current);
+                    popupInterval.current = null;
+                }
+            } else {
+                console.log(data.message || "Something went wrong. Please try again.");
+            }
+        } catch (error) {
+            console.log(`Network error: ${error}. Please try again later.`);
+        } finally {
+            // setLoading(false);
         }
-      } catch (error) {
-        console.log(`Network error: ${error}. Please try again later.`);
-      } finally {
-        // setLoading(false);
-      }
     };
+    // contact form end
 
     return (
         <>
@@ -423,7 +483,7 @@ export default function LP( { products, categories }: { products: apiProductRes[
             {/* usp */}
             <section className="overview-section top-bottom-padding" id="usp">
                 <div className="object object-01" data-movement-desktop="-80" data-movement-mobile="-80">
-                    <Image src="/assets/images/object-01.svg" alt="Laptop" width={500} height={300}  className="laptop-image" />
+                    <Image src="/assets/images/object-01.svg" alt="Laptop" width={500} height={300} className="laptop-image" />
                 </div>
                 <div className="object object-02" data-movement-desktop="120" data-movement-mobile="120">
                     <Image src="/assets/images/object-02.svg" alt="Laptop" width={500} height={300} className="laptop-image" />
@@ -555,10 +615,10 @@ export default function LP( { products, categories }: { products: apiProductRes[
                             className="counter-wrp margin-t-1 fade-in-anim swiper-dot"
                         >
                             {
-                                categories.sort((a, b) => a.sequence - b.sequence).map((category, index)=>{
+                                categories.sort((a, b) => a.sequence - b.sequence).map((category, index) => {
                                     return (
                                         <SwiperSlide key={index}>
-                                            <div className="counter-innr" style={{backgroundImage: `url('/assets/images/Cat${index+1}.png')`}}>
+                                            <div className="counter-innr" style={{ backgroundImage: `url('/assets/images/Cat${index + 1}.png')` }}>
                                                 <div className="category-card">
                                                     <h2>{category.name}</h2>
                                                     <p>Office Laptop one liner</p>
@@ -700,7 +760,7 @@ export default function LP( { products, categories }: { products: apiProductRes[
                                         <div className="stars">★★★★★</div>
                                         <h3>I recently purchased a refurbished laptop from A&T Services Inc., and I am thoroughly impressed! The quality of the product was outstanding, and the price was incredibly affordable. Their expert technical team provided excellent support, answering all my queries and ensuring a smooth setup.What stood out the most was their timely service and genuine focus on customer satisfaction. It&apos;s clear that they value their clients and strive to deliver the best experience possible. I highly recommend A&T Services Inc. to anyone looking for reliable IT solutions at great prices!</h3>
                                         <div className="user-info">
-                                            <Image src="/assets/images/test4.png" alt="Customer Review | A&T Services Inc." title="Customer Review | A&T Services Inc." width={1000} height={1000}/>
+                                            <Image src="/assets/images/test4.png" alt="Customer Review | A&T Services Inc." title="Customer Review | A&T Services Inc." width={1000} height={1000} />
                                             <div>
                                                 <h4>Yogesh Kumar</h4>
                                                 {/* <p>CEO Universal</p> */}
@@ -713,7 +773,7 @@ export default function LP( { products, categories }: { products: apiProductRes[
                                         <div className="stars">★★★★★</div>
                                         <h3>I purchase laptops and desktops both from A & T Services Inc. regularly, All systems are good in performance and conditions. And also service is too good delivery and support. Thanks A & T SERVICES for best price and good service</h3>
                                         <div className="user-info">
-                                            <Image src="/assets/images/test5.png" alt="Customer Review | A&T Services Inc." title="Customer Review | A&T Services Inc." width={1000} height={1000}/>
+                                            <Image src="/assets/images/test5.png" alt="Customer Review | A&T Services Inc." title="Customer Review | A&T Services Inc." width={1000} height={1000} />
                                             <div>
                                                 <h4>Aspirants Classes</h4>
                                                 {/* <p>CEO Universal</p> */}
@@ -726,7 +786,7 @@ export default function LP( { products, categories }: { products: apiProductRes[
                                         <div className="stars">★★★★★</div>
                                         <h3>I recently tried out their service, and honestly, they&apos;re pretty solid! Their tech team knows their stuff—quick fixes, smooth setups and all-around good support. As for their refurbished products? Total win. Everything I got was in great condition and worked perfectly Plus, it&apos;s budget-friendly, which is always a bonus. Their customer service was super friendly and helpful, answering all my random questions without a hitch. If you&apos;re looking for affordable tech solutions and solid service, I&apos;d definitely recommend checking them out.</h3>
                                         <div className="user-info">
-                                            <Image src="/assets/images/test1.png" alt="Customer Review | A&T Services Inc." title="Customer Review | A&T Services Inc." width={1000} height={1000}/>
+                                            <Image src="/assets/images/test1.png" alt="Customer Review | A&T Services Inc." title="Customer Review | A&T Services Inc." width={1000} height={1000} />
                                             <div>
                                                 <h4>Moses Jena</h4>
                                                 {/* <p>CEO Universal</p> */}
@@ -739,7 +799,7 @@ export default function LP( { products, categories }: { products: apiProductRes[
                                         <div className="stars">★★★★★</div>
                                         <h3>A& Tservices is very customer friendly and providing best quality products in reasonable price.there sales person or It person is very humble for their customers.</h3>
                                         <div className="user-info">
-                                            <Image src="/assets/images/test2.png" alt="Customer Review | A&T Services Inc." title="Customer Review | A&T Services Inc." width={1000} height={1000}/>
+                                            <Image src="/assets/images/test2.png" alt="Customer Review | A&T Services Inc." title="Customer Review | A&T Services Inc." width={1000} height={1000} />
                                             <div>
                                                 <h4>Fatma sara khan</h4>
                                                 {/* <p>CEO Universal</p> */}
@@ -752,7 +812,7 @@ export default function LP( { products, categories }: { products: apiProductRes[
                                         <div className="stars">★★★★★</div>
                                         <h3>Quality is very good of laptops and desktops. It&apos;s really good products.</h3>
                                         <div className="user-info">
-                                            <Image src="/assets/images/test3.png" alt="Customer Review | A&T Services Inc." title="Customer Review | A&T Services Inc." width={1000} height={1000}/>
+                                            <Image src="/assets/images/test3.png" alt="Customer Review | A&T Services Inc." title="Customer Review | A&T Services Inc." width={1000} height={1000} />
                                             <div>
                                                 <h4>Inderdeep Kaur</h4>
                                                 {/* <p>CEO Universal</p> */}
@@ -783,9 +843,9 @@ export default function LP( { products, categories }: { products: apiProductRes[
                         </h2>
                     </div>
                     {/* form */}
-                    <section className="sec-eq static">
+                    <section className={`sec-eq ${isOpen ? 'show' : 'static'}`}>
                         <div className="container">
-                            <div className="closeIcon hover-target">+</div>
+                            <div className="closeIcon hover-target" onClick={closeContactPopup}>+</div>
                             <form id="enquirynow" onSubmit={handleSubmit} method="POST">
                                 <h4 className="eqTitle">Enquire Now</h4>
                                 <div className="formControl">
@@ -796,11 +856,11 @@ export default function LP( { products, categories }: { products: apiProductRes[
                                 </div>
                                 <div className="formControl">
                                     <input type="text" name="contact" id="contact" minLength={10} maxLength={10}
-                                    placeholder="Phone number" value={formData.contact} onChange={handleChange} required />
+                                        placeholder="Phone number" value={formData.contact} onChange={handleChange} required />
                                 </div>
                                 <div className="formControl">
                                     <input type="text" name="msg" id="msg"
-                                    placeholder="Messages" value={formData.msg} onChange={handleChange} required />
+                                        placeholder="Messages" value={formData.msg} onChange={handleChange} required />
                                 </div>
                                 <div className="formControl btn-wrp">
                                     <button type="submit" name="submit" id="submit" className="subBtn hover-target btn">submit now</button>
@@ -965,6 +1025,22 @@ export default function LP( { products, categories }: { products: apiProductRes[
                 </div>
             </footer>
             {/* footer end */}
+
+            {/* whatsapp */}
+            {/* <div
+            className="whatsapp-container"
+            style={{
+                opacity: showWAButton ? 1 : 0,
+                transition: "right 0.5s ease-out, opacity 0.5s ease-out",
+            }}
+            >
+            <Script
+                src="https://d2jyl60qlhb39o.cloudfront.net/integration-plugin.js"
+                id="wa-widget"
+                widget-id="HHhzjs"
+            />
+            </div> */}
+            {/* whatsapp end */}
         </>
     );
 }
