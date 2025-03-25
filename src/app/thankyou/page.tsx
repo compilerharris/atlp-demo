@@ -1,10 +1,20 @@
+"use client"
+import { useRouter } from "next/navigation";
+
 export default function ThankYou() {
+    const router = useRouter();
+
+    const redirectToHome = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        router.push("https://antservices.in");
+    }
     return (
         <section className="thankyou">
             <div className="container">
                 <div className="txtDiv">
                     <h2 className="heading-02 text-line-section">Thank you for your request.</h2>
-                    <p>Our sales team will get back to you soon.</p>
+                    <p style={{marginBottom: '20px'}}>Our sales team will get back to you soon.</p>
+                    <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => redirectToHome(e)} className="btn">GO TO HOME</a>
                 </div>
             </div>
             <style>

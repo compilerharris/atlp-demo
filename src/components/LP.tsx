@@ -418,10 +418,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                     clearInterval(popupInterval.current);
                     popupInterval.current = null;
                 }
-                if (redirectTo == "/thankyou") {
-                    router.push("/thankyou");
-                }
-                window.location.href = redirectTo || "/thankyou";
+                router.push(redirectTo || "/thankyou");
             } else {
                 console.log(data.message || "Something went wrong. Please try again.");
             }
@@ -577,16 +574,9 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                                 <div className="counter-innr">
                                     <Image src="/assets/images/icon1.png" alt="" width={500} height={300} />
                                     {/* <p className="p1 is-white">1</p> */}
-                                    <p className="p2 is-white">1 1 Year Warranty</p>
+                                    <p className="p2 is-white">1 Year Warranty</p>
                                 </div>
                             </SwiperSlide>
-                            {/* <SwiperSlide>
-                                <div className="counter-innr">
-                                    <Image src="/assets/images/icon1.png" alt="" width={500} height={300} />
-                                    // <p className="p1 is-white">Affordable Pricing</p>
-                                    <p className="p2 is-white">Affordable Pricing Get the best value without compromising on quality</p>
-                                </div>
-                            </SwiperSlide> */}
                             <SwiperSlide>
                                 <div className="counter-innr">
                                     <Image src="/assets/images/icon1.png" alt="" width={500} height={300} />
@@ -594,13 +584,6 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                                     <p className="p2 is-white">72 Quality Checks</p>
                                 </div>
                             </SwiperSlide>
-                            {/* <SwiperSlide>
-                                <div className="counter-innr">
-                                    <Image src="/assets/images/icon1.png" alt="" width={500} height={300} />
-                                    // <p className="p1 is-white">Quick Support</p>
-                                    <p className="p2 is-white">Quick Support Hassle-free customer assistance whenever you need it</p>
-                                </div>
-                            </SwiperSlide> */}
                             <SwiperSlide>
                                 <div className="counter-innr">
                                     <Image src="/assets/images/icon1.png" alt="" width={500} height={300} />
@@ -608,24 +591,15 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                                     <p className="p2 is-white">10 Day Replacement</p>
                                 </div>
                             </SwiperSlide>
-                            {/* <SwiperSlide>
-                                <div className="counter-innr">
-                                    <Image src="/assets/images/icon1.png" alt="" width={500} height={300} />
-                                    // <p className="p1 is-white">Quality Assurance</p>
-                                    <p className="p2 is-white">Quality Assurance We stand by our commitment to superior standards</p>
-                                </div>
-                            </SwiperSlide> */}
                             <SwiperSlide>
                                 <div className="counter-innr">
                                     <Image src="/assets/images/icon1.png" alt="" width={500} height={300} />
-                                    {/* <p className="p1 is-white">AMC</p> */}
                                     <p className="p2 is-white">AMC Reliable After-Sales Service</p>
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide>
                                 <div className="counter-innr">
                                     <Image src="/assets/images/icon1.png" alt="" width={500} height={300} />
-                                    {/* <p className="p1 is-white">AMC</p> */}
                                     <p className="p2 is-white">AMC Reliable After-Sales Service</p>
                                 </div>
                             </SwiperSlide>
