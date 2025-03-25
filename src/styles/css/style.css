@@ -146,6 +146,9 @@ body {
 .category .counter-innr .category-card h2 {
   font-size: 28px;
   margin-bottom: 15px;
+  width: 60%;
+  text-align: left;
+  line-height: normal;
 }
 
 .category .counter-innr .category-card p {
@@ -170,6 +173,22 @@ body {
   }
 }
 
+@media screen and (max-width: 1024px){
+  .category .counter-innr {
+    height: 240px;
+  }
+
+  .category .counter-innr .category-card {
+    padding: 20px;
+  }
+
+  .category .counter-innr .category-card h2 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    width: 70%;
+  }
+}
+
 @media screen and (max-width: 1023px){
   .category {
     /* padding-left: 10%;
@@ -177,6 +196,9 @@ body {
   }
   .category .counter-innr{
     background-position: center;
+    height: 300px;
+    width: 80%;
+    margin: auto;
   }
 }
 
@@ -185,7 +207,11 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
-
+  }
+  
+  .category .counter-innr{
+    height: 300px;
+    width: 100%;
   }
 }
 
@@ -3606,7 +3632,9 @@ option {
     left: 0;
     font-size: 14px;
     color: #fff;
-    background: #e2d09f;
+    background: linear-gradient(132deg, #FF1A0D 0%, #a31e17 100%);
+    /* background: #535353;
+    background: #e2d09f; */
     width: 50%;
     padding: 10px 0;
     text-align: center;
@@ -4726,7 +4754,7 @@ footer .branches-wrp p{
   right: 18vw;
   top: 7vw;
   width: 36vw;
-  animation: float 3s ease-in-out infinite, fadeIn .5s ease-out forwards;
+  animation: float 3s ease-in-out infinite, fadeIn .5s ease-in-out forwards;
 }
 
 @keyframes float {
@@ -4790,11 +4818,25 @@ footer .branches-wrp p{
 @media (max-width: 767px) {
   .banner .laptop-image {
     right: 16vw;
-    top: 24vw;
+    /* top: 24vw; */
+    top: 9%;
     width: 80vw;
-}
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      top: -10vw;
+    }
+    to {
+      opacity: 1;
+      top: 9%;
+    }
+  }
   .banner .text-content {
-    margin: 0 0 80px;
+    margin: 0;
+    position: absolute;
+    top: 70%;
+    transform: translateY(-50%);
   }
   .banner .text-content .heading-02 {
     font-size: 28px;
@@ -4812,3 +4854,10 @@ footer .branches-wrp p{
   }
 }
 /* banner end */
+
+@media only screen and (max-width: 767px) {
+  #df-btn-cont .df-btn {
+    bottom: 50px !important;
+    right: 10px !important;
+  }
+}

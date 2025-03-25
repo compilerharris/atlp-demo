@@ -3,7 +3,13 @@
 import { apiProductRes } from "@/app/page";
 import Image from "next/image";
 
-export default function Products({ products }: { products: apiProductRes[] }) {
+
+interface ProductsProps {
+  products: apiProductRes[];
+  openContactForm: (e: React.MouseEvent<HTMLAnchorElement>, url: string) => void;
+}
+
+export default function Products({ products, openContactForm }: ProductsProps) {
 
   const redirectToWhatsapp = (e: React.MouseEvent<HTMLAnchorElement>, productName: string) => {
       e.preventDefault();
@@ -39,7 +45,7 @@ export default function Products({ products }: { products: apiProductRes[] }) {
                     <p className="title">{product.title}</p>
                     <p className="price">₹ {product.price}</p>
                     <div className="cta">
-                      <a href={`https://www.antservices.in${product.productPageUrl}`} target="_blank" className="btn btn-red">Buy Now</a>
+                      <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => openContactForm(e, `https://www.antservices.in${product.productPageUrl}`)} target="_blank" className="btn btn-red">Buy Now</a>
                       <a onClick={(e)=>{redirectToWhatsapp(e, product.title)}} className="btn">Chat Now</a>
                     </div>
                   </div>

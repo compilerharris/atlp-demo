@@ -34,7 +34,8 @@ export default function LP({ products, categories }: { products: apiProductRes[]
 
     // contact us
     const [isOpen, setIsOpen] = useState(false);
-    const [formSubmitted, setFormSubmitted] = useState( typeof window !== "undefined" && localStorage.getItem("formSubmitted") === "true" );
+    const [redirectTo, setRedirectTo] = useState("/thankyou");
+    const [formSubmitted, setFormSubmitted] = useState(typeof window !== "undefined" && localStorage.getItem("formSubmitted") === "true");
     const popupInterval = useRef<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
@@ -296,14 +297,14 @@ export default function LP({ products, categories }: { products: apiProductRes[]
         // const handleWAScroll = () => {
         //     const viewportHeight = window.innerHeight;
         //     const scrollY = window.scrollY;
-      
+
         //     if (scrollY > viewportHeight / 2) {
         //       setShowWAButton(true);
         //     } else {
         //       setShowWAButton(false);
         //     }
         // };
-      
+
         // window.addEventListener("scroll", handleWAScroll);
 
         return () => {
@@ -321,12 +322,18 @@ export default function LP({ products, categories }: { products: apiProductRes[]
 
     // contact form
 
+    const openContactForm = (e: React.MouseEvent<HTMLAnchorElement>, redirectTo: string) => {
+        e.preventDefault();
+        setRedirectTo(redirectTo)
+        setIsOpen(true);
+    }
+
     useEffect(() => {
         if (formSubmitted) return; // Stop popup if form was submitted
 
         // First popup appears after 5 seconds
         const firstPopupTimeout = setTimeout(() => {
-        setIsOpen(true);
+            setIsOpen(true);
         }, 5000);
 
         return () => clearTimeout(firstPopupTimeout);
@@ -339,9 +346,9 @@ export default function LP({ products, categories }: { products: apiProductRes[]
 
     const startPopupInterval = () => {
         if (!popupInterval.current) {
-          popupInterval.current = setInterval(() => {
-            setIsOpen(true);
-          }, 20000);
+            popupInterval.current = setInterval(() => {
+                setIsOpen(true);
+            }, 60000);
         }
     };
 
@@ -398,6 +405,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                     clearInterval(popupInterval.current);
                     popupInterval.current = null;
                 }
+                window.location.href = redirectTo || "/thankyou";
             } else {
                 console.log(data.message || "Something went wrong. Please try again.");
             }
@@ -462,7 +470,37 @@ export default function LP({ products, categories }: { products: apiProductRes[]
             </nav>
 
             {/* slider banner */}
-            <div className="banner">
+            <Swiper
+                modules={[Autoplay]}
+                slidesPerView={1}
+                loop={true}
+                autoplay={{ delay: 5000 }}
+                breakpoints={{
+                    0: { slidesPerView: 1 },
+                    768: { slidesPerView: 1 },
+                    1200: { slidesPerView: 1 },
+                }}
+                className="counter-wrp margin-t-1 anim_fade_in_wrp swiper-dot"
+            >
+                <SwiperSlide>
+                    <div className="banner">
+                        <div className="object object-05" data-movement-desktop="-120" data-movement-mobile="-120">
+                            <Image src="/assets/images/object-02.svg" width={1920} height={1000} alt='Element' />
+                        </div>
+                        <div className="text-content anim_fade_in">
+                            <h1 className="heading-02">Affordable & Trusted <br /> That’s A&T!</h1>
+                            <p className="p1">Your Partner in Quality Without Compromise!</p>
+                            <p className="p2">Hassle-Free 1-Year Warranty <br /> Affordable Prices, No Hidden Costs <br /> Quick Support, Always Ready</p>
+                            <div>
+                                <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => openContactForm(e, "https://www.antservices.in/shop")} target='_blank' className="btn btn-red">SHOP NOW</a>
+                                <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => redirectToWhatsapp(e, `Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</a>
+                            </div>
+                        </div>
+                        <Image src="/assets/images/laptop.png" alt="Floating Laptop" width={500} height={300} className="laptop-image" />
+                    </div>
+                </SwiperSlide>
+            </Swiper>
+            {/* <div className="banner">
                 <div className="object object-05" data-movement-desktop="-120" data-movement-mobile="-120">
                     <Image src="/assets/images/object-02.svg" width={1920} height={1000} alt='Element' />
                 </div>
@@ -476,7 +514,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                     </div>
                 </div>
                 <Image src="/assets/images/laptop.png" alt="Floating Laptop" width={500} height={300} className="laptop-image" />
-            </div>
+            </div> */}
             {/* slider banner ends */}
 
             {/* usp */}
@@ -565,7 +603,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
             {/* usp end */}
 
             {/* products */}
-            <Products products={products} />
+            <Products products={products} openContactForm={openContactForm}/>
             {/* products ends */}
 
             {/* video */}
@@ -621,7 +659,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                                                 <div className="category-card">
                                                     <h2>{category.name}</h2>
                                                     <p>Office Laptop one liner</p>
-                                                    <a href={`https://www.antservices.in${category.categoryPageUrl}`} className="btn btn-red">SHOP NOW</a>
+                                                    <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => openContactForm(e, `https://www.antservices.in${category.categoryPageUrl}`)} className="btn btn-red">SHOP NOW</a>
                                                 </div>
                                             </div>
                                         </SwiperSlide>
@@ -681,17 +719,17 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                             <div className="shopItem fade-in-anim">
                                 <Image src="/assets/images/dell.png" width={1920} height={1000} alt='Dell Refurbished Laptops' />
                                 <h2>Dell Refurbished Laptops</h2>
-                                <a href="https://www.antservices.in/shop?search=dell" target="_blank" className="btn btn-red">SHOP NOW</a>
+                                <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => openContactForm(e, `https://www.antservices.in/shop?search=dell`)} target="_blank" className="btn btn-red">SHOP NOW</a>
                             </div>
                             <div className="shopItem fade-in-anim">
                                 <Image src="/assets/images/hp.png" width={1920} height={1000} alt='HP Refurbished Laptops' />
                                 <h2>HP Refurbished Laptops</h2>
-                                <a href="https://www.antservices.in/shop?search=hp" target="_blank" className="btn btn-red">SHOP NOW</a>
+                                <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => openContactForm(e, `https://www.antservices.in/shop?search=hp`)} target="_blank" className="btn btn-red">SHOP NOW</a>
                             </div>
                             <div className="shopItem fade-in-anim">
                                 <Image src="/assets/images/lenovo.png" width={1920} height={1000} alt='Lenovo Refurbished Laptops' />
                                 <h2>Lenovo Refurbished Laptops</h2>
-                                <a href="https://www.antservices.in/shop?search=lenovo" target="_blank" className="btn btn-red">SHOP NOW</a>
+                                <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => openContactForm(e, `https://www.antservices.in/shop?search=lenovo`)} target="_blank" className="btn btn-red">SHOP NOW</a>
                             </div>
                         </div>
 
@@ -706,15 +744,15 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                         <div className="shopCard price">
                             <div className="shopItem fade-in-anim">
                                 <h2>Budget-friendly options with great performance. Find Laptops Under <span>₹20,000</span></h2>
-                                <a href="https://www.antservices.in/shop?max_price=20000.00" target="_blank" className="btn btn-red">SHOP NOW</a>
+                                <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => openContactForm(e, `https://www.antservices.in/shop?max_price=20000.00`)} target="_blank" className="btn btn-red">SHOP NOW</a>
                             </div>
                             <div className="shopItem fade-in-anim">
                                 <h2>Perfect balance of affordability and power. Find Laptops Under <span>₹30,000</span></h2>
-                                <a href="https://www.antservices.in/shop?max_price=30000.00" target="_blank" className="btn btn-red">SHOP NOW</a>
+                                <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => openContactForm(e, `https://www.antservices.in/shop?max_price=30000.00`)} target="_blank" className="btn btn-red">SHOP NOW</a>
                             </div>
                             <div className="shopItem fade-in-anim">
                                 <h2>High-performance laptops for all your needs. Find Laptops Above <span>₹30,000</span></h2>
-                                <a href="https://www.antservices.in/shop?min_price=30000.00" target="_blank" className="btn btn-red">SHOP NOW</a>
+                                <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => openContactForm(e, `https://www.antservices.in/shop?min_price=30000.00`)} target="_blank" className="btn btn-red">SHOP NOW</a>
                             </div>
                         </div>
                     </div>
@@ -854,7 +892,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                                     <input type="email" name="email" id="email" placeholder="Email Address" value={formData.email} onChange={handleChange} required />
                                 </div>
                                 <div className="formControl">
-                                    <input type="text" name="contact" id="contact" minLength={10} maxLength={10}
+                                    <input type="number" name="contact" id="contact" minLength={10} maxLength={10}
                                         placeholder="Phone number" value={formData.contact} onChange={handleChange} required />
                                 </div>
                                 <div className="formControl">
@@ -1024,6 +1062,9 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                 </div>
             </footer>
             {/* footer end */}
+
+            <div className="eq-btn-mobile">Enquire Now</div>
+            <a href="tel:+919599090603" className="call-btn-mobile"><span>+91 95 9909 0603</span></a>
 
             {/* whatsapp */}
             {/* <div
