@@ -4726,14 +4726,26 @@ footer .branches-wrp p{
   right: 18vw;
   top: 7vw;
   width: 36vw;
-  animation: float 3s ease-in-out infinite;
+  animation: float 3s ease-in-out infinite, fadeIn .5s ease-out forwards;
 }
+
 @keyframes float {
   0%, 100% {
       transform: translateY(0);
   }
   50% {
       transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    top: -10vw;
+  }
+  to {
+    opacity: 1;
+    top: 7vw;
   }
 }
 @media (max-width: 1199px) {

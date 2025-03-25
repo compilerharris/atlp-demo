@@ -466,7 +466,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                 <div className="object object-05" data-movement-desktop="-120" data-movement-mobile="-120">
                     <Image src="/assets/images/object-02.svg" width={1920} height={1000} alt='Element' />
                 </div>
-                <div className="text-content">
+                <div className="text-content anim_fade_in">
                     <h1 className="heading-02">Affordable & Trusted <br /> That’s A&T!</h1>
                     <p className="p1">Your Partner in Quality Without Compromise!</p>
                     <p className="p2">Hassle-Free 1-Year Warranty <br /> Affordable Prices, No Hidden Costs <br /> Quick Support, Always Ready</p>
