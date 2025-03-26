@@ -572,35 +572,35 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                                 </div> */}
                             <SwiperSlide>
                                 <div className="counter-innr">
-                                    <Image src="/assets/images/icon1.png" alt="" width={500} height={300} />
+                                    <Image src="/assets/images/1-year-warranty.png" alt="" width={500} height={300} />
                                     {/* <p className="p1 is-white">1</p> */}
                                     <p className="p2 is-white">1 Year Warranty</p>
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide>
                                 <div className="counter-innr">
-                                    <Image src="/assets/images/icon1.png" alt="" width={500} height={300} />
+                                    <Image src="/assets/images/72-Qualitty-check.png" alt="" width={500} height={300} />
                                     {/* <p className="p1 is-white">72</p> */}
                                     <p className="p2 is-white">72 Quality Checks</p>
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide>
                                 <div className="counter-innr">
-                                    <Image src="/assets/images/icon1.png" alt="" width={500} height={300} />
+                                    <Image src="/assets/images/10-day-replacement.png" alt="" width={500} height={300} />
                                     {/* <p className="p1 is-white">10</p> */}
                                     <p className="p2 is-white">10 Day Replacement</p>
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide>
                                 <div className="counter-innr">
-                                    <Image src="/assets/images/icon1.png" alt="" width={500} height={300} />
-                                    <p className="p2 is-white">AMC Reliable After-Sales Service</p>
+                                    <Image src="/assets/images/amc.png" alt="" width={500} height={300} />
+                                    <p className="p2 is-white">Reliable After-Sales Service</p>
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide>
                                 <div className="counter-innr">
-                                    <Image src="/assets/images/icon1.png" alt="" width={500} height={300} />
-                                    <p className="p2 is-white">AMC Reliable After-Sales Service</p>
+                                    <Image src="/assets/images/free-delivery.png" alt="" width={500} height={300} />
+                                    <p className="p2 is-white">Free Delivery</p>
                                 </div>
                             </SwiperSlide>
                         </Swiper>
