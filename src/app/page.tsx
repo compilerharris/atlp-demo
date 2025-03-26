@@ -1,4 +1,5 @@
 import LP from "@/components/LP";
+import Head from "next/head";
 
 export interface apiCategoryRes {
   sequence: number,
@@ -38,6 +39,24 @@ export default async function Home() {
 
   return (
     <>
+      {/* Dynamic SEO Metadata */}
+      <Head>
+        <title>A&T Landing Page Demo | HardReload</title>
+        <meta name="description" content="This is a demo for A&T Landing Page." />
+        <meta property="og:title" content="A&T Landing Page | HardReload" />
+        <meta property="og:description" content="This is a demo for A&T Landing Page." />
+        {/* <meta property="og:image" content="https://netbizlabs.com/a+content/image1.jpg" /> */}
+        <meta property="og:image" content="https://media.licdn.com/dms/image/v2/D4D0BAQG7g6qdNynOwg/company-logo_100_100/company-logo_100_100/0/1724951451490/hardreload_logo?e=1748476800&v=beta&t=tYaVxlyeFRv7af27GZjKKiZp8VoYgRK6YH1BNmk75Ww" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://atlp-demo-7c9p.vercel.app" />
+
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="A&T Landing Page | HardReload" />
+        <meta name="twitter:title" content="A&T Landing Page | HardReload" />
+        <meta name="twitter:description" content="This is a demo for A&T Landing Page." />
+        {/* <meta name="twitter:image" content="https://netbizlabs.com/a+content/image1.jpg" /> */}
+        <meta name="twitter:image" content="https://media.licdn.com/dms/image/v2/D4D0BAQG7g6qdNynOwg/company-logo_100_100/company-logo_100_100/0/1724951451490/hardreload_logo?e=1748476800&v=beta&t=tYaVxlyeFRv7af27GZjKKiZp8VoYgRK6YH1BNmk75Ww" />
+      </Head>
       <LP products={props.products} categories={props.categories} />
     </>
   );
