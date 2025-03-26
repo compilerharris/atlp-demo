@@ -2894,7 +2894,7 @@ option {
   text-transform: uppercase;
 }
 
-#usp img{
+#usp .swiper-slide img{
   width: 30%;
 }
 
@@ -2943,7 +2943,7 @@ option {
 
 @media only screen and (max-width: 767px) {
 
-  #usp img{
+  #usp .swiper-slide img{
     width: 40%;
   }
 
