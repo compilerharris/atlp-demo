@@ -15,9 +15,32 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+
 export const metadata: Metadata = {
-  title: "A&T Services Inc.",
-  description: "A&T Services Inc.",
+  title: "Refurbished Laptops & Desktops | A&T Services Inc.",
+  description: "Buy high-quality refurbished laptops & desktops from A&T Services Inc. Enjoy free shipping, 1-year warranty, and quick support across India",
+  openGraph: {
+    title: "Refurbished Laptops & Desktops | A&T Services Inc.",
+    description: "Buy high-quality refurbished laptops & desktops from A&T Services Inc. Enjoy free shipping, 1-year warranty, and quick support across India.",
+    url: "https://www.antservices.in/",
+    siteName: "A&T Services Inc.",
+    images: [
+      {
+        url: "https://www.antservices.in/web/image/website/1/logo/A%26T%20Services?unique=5a54c48",
+        width: 250,
+        height: 250,
+        alt: "Refurbished Laptops & Desktops - A&T Services Inc.",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Refurbished Laptops & Desktops | A&T Services Inc.",
+    site: "@yourTwitterHandle",
+    description: "Buy high-quality refurbished laptops & desktops from A&T Services Inc. Enjoy free shipping, 1-year warranty, and quick support across India.",
+    images: ["https://www.antservices.in/web/image/website/1/logo/A%26T%20Services?unique=5a54c48"]
+  },
 };
 
 export default function RootLayout({
