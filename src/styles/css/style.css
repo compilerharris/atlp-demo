@@ -108,6 +108,20 @@ body {
   width: 48%;
 }
 
+.products .readMore{
+  text-align: center;
+}
+
+.products .readMore a{
+  color: #f13227;
+}
+
+.products .readMore a:hover{
+  background: #f13227;
+  color: #fff;
+  border-color: #f13227;
+}
+
 @media screen and (max-width: 1024px){
   .card{
     width: 42%;
