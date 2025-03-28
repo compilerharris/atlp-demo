@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Refurbished Laptops & Desktops | A&T Services Inc.",
-    site: "@yourTwitterHandle",
+    site: "@antservices_inc",
     description: "Buy high-quality refurbished laptops & desktops from A&T Services Inc. Enjoy free shipping, 1-year warranty, and quick support across India.",
     images: ["https://www.antservices.in/web/image/website/1/logo/A%26T%20Services?unique=5a54c48"]
   },

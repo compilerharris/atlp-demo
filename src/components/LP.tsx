@@ -361,7 +361,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
         if (!popupInterval.current) {
             popupInterval.current = setInterval(() => {
                 setIsOpen(true);
-            }, 60000);
+            }, 300000);
         }
     };
 
@@ -665,7 +665,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                                             <div className="counter-innr" style={{ backgroundImage: `url('/assets/images/Cat${index + 1}.png')` }}>
                                                 <div className="category-card">
                                                     <h2>{category.name}</h2>
-                                                    <p>Office Laptop one liner</p>
+                                                    {/* <p>Office Laptop one liner</p> */}
                                                     <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => openContactForm(e, `https://www.antservices.in${category.categoryPageUrl}`)} className="btn btn-red">SHOP NOW</a>
                                                 </div>
                                             </div>
