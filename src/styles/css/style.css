@@ -4806,7 +4806,8 @@ footer .branches-wrp p{
   position: relative;
   width: 100%;
   height: 100vh;
-  background: url('../../../public/assets/images/banner.png') no-repeat center center/cover;
+  /* background: url('../../../public/assets/images/banner.png') no-repeat center center/cover; */
+  /* background: url('../../../public/assets/images/super-sale.png') no-repeat center center/cover; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -4838,14 +4839,6 @@ footer .branches-wrp p{
   margin-bottom: 0;
 }
 
-/* .banner .text-content .text-line-wrp{
-  height: 8vw;
-}
-
-.banner .text-content .text-line {
-  transform: translate(0px, 120px);
-} */
-
 .banner .text-content p {
   font-family: "IBM Plex Sans", sans-serif;
   /* opacity: 0; */
@@ -4876,7 +4869,20 @@ footer .branches-wrp p{
   right: 18vw;
   top: 7vw;
   width: 36vw;
+}
+
+.banner .bannerOne{
+  right: 9vw;
+  top: 5vw !important;
+  animation: fadeIn .5s ease-in-out forwards;
+}
+
+.floatAnim{
   animation: float 3s ease-in-out infinite, fadeIn .5s ease-in-out forwards;
+}
+
+.fadeInAnim{
+  animation: fadeIn .5s ease-in-out forwards;
 }
 
 @keyframes float {
@@ -4898,6 +4904,21 @@ footer .branches-wrp p{
     top: 7vw;
   }
 }
+
+@media (max-width: 1440px) {
+  .banner .bannerOne{
+    right: 4vw;
+    top: 12vw !important;
+  }
+}
+
+@media (max-width: 1366px) {
+  .banner .bannerOne{
+    right: 9vw;
+    top: 5vw !important;
+  }
+}
+
 @media (max-width: 1199px) {
   .banner .laptop-image {
     right: 11vw;
@@ -4907,17 +4928,23 @@ footer .branches-wrp p{
 }
 @media (max-width: 1023px) {
   .banner {
-    background: url('../../../public/assets/images/banner-01-mobile.jpg') no-repeat center center/cover;
+    /* background: url('../../../public/assets/images/banner-01-mobile.jpg') no-repeat center center/cover; */
+    /* background: url('../../../public/assets/images/super-sale-mobile.png') no-repeat center center/cover; */
     flex-direction: column-reverse;
     text-align: center;
     padding: 20px;
-    background-position: 20%;
+    /* background-position: 20%; */
   }
   .banner .laptop-image {
     right: 20vw;
     top: 7vw;
     width: 66vw;
-}
+  }
+  .banner .bannerOne {
+    right: 21vw;
+    top: 10% !important;
+    width: 57%;
+  }
   .banner .text-content {
     width: 100%;
     margin: 0 0 6vw;
@@ -4941,9 +4968,12 @@ footer .branches-wrp p{
 @media (max-width: 767px) {
   .banner .laptop-image {
     right: 16vw;
-    /* top: 24vw; */
     top: 9%;
     width: 80vw;
+  }
+  .banner .bannerOne {
+    right: 10vw;
+    top: 14% !important;
   }
   @keyframes fadeIn {
     from {

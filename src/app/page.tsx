@@ -32,7 +32,6 @@ export default async function Home() {
     const res = await fetch(`https://www.antservices.in/get_top_performing`,{ cache: "no-store" });
     if (!res.ok) throw new Error("Failed to fetch data");
     props = await res.json();
-    console.log(props);
     
   } catch (error) {
     console.error("Error fetching data:", error);

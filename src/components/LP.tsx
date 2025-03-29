@@ -24,6 +24,16 @@ gsap.registerPlugin(ScrollTrigger);
 export default function LP({ products, categories }: { products: apiProductRes[]; categories: apiCategoryRes[] }) {
     const router = useRouter();
 
+    // banner images
+
+    const [deviceWidth, setDeviceWidth] = useState<number>(window.innerWidth);
+    const bannerImages = {
+        banner1: "/assets/images/super-sale.png",
+        mBanner1: "/assets/images/super-sale-mobile.png",
+        banner2: "/assets/images/banner.png",
+        mBanner2: "/assets/images/banner-01-mobile.jpg",
+    }
+
     const redirectToWhatsapp = (e: React.MouseEvent<HTMLAnchorElement>, msg: string) => {
         e.preventDefault();
         const phoneNumber = '+919599090603';
@@ -292,20 +302,10 @@ export default function LP({ products, categories }: { products: apiProductRes[]
             ScrollTrigger.refresh();
             setParallaxEffect();
             allAnimation();
+            setDeviceWidth(window.innerWidth);
         };
 
         window.addEventListener("resize", handleResize);
-
-        // const handleWAScroll = () => {
-        //     const viewportHeight = window.innerHeight;
-        //     const scrollY = window.scrollY;
-
-        //     if (scrollY > viewportHeight / 2) {
-        //       setShowWAButton(true);
-        //     } else {
-        //       setShowWAButton(false);
-        //     }
-        // };
 
         const handleWAScroll = () => {
             const button = document.getElementById("df-btn-cont");
@@ -496,16 +496,22 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                 className="counter-wrp margin-t-1 anim_fade_in_wrp"
             >
                 <SwiperSlide>
-                    <div className="banner">
-                        <div className="object object-05" data-movement-desktop="-120" data-movement-mobile="-120">
-                            <Image src="/assets/images/object-02.svg" width={1920} height={1000} alt='Element' />
-                        </div>
+                    <div className="banner" style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner1 : bannerImages.banner1})`, backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
                         <div className="text-content">
-                            {/* <h1 className="heading-02 text-line-section">
-                                <span className="text-line-wrp mob-2-line">
-                                    <span className="text-line" data-delay={0}>Affordable & Trusted <br /> That’s A&T!</span>
-                                </span>
-                            </h1> */}
+                            <h1 className="heading-02">Dell Latitude 5420</h1>
+                            <p className="p1">1-Year Onsite Warranty Included</p>
+                            <p className="p2">11th Gen Intel Core i5 <br /> 14-inch anti-glare screen, backlit keyboard <br /> Weight 1.5 KG, Wi-Fi 6, Bluetooth</p>
+                            <div>
+                                <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => openContactForm(e, "https://www.antservices.in/shop")} target='_blank' className="btn btn-red">SHOP NOW</a>
+                                <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => redirectToWhatsapp(e, `Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</a>
+                            </div>
+                        </div>
+                        <Image src="/assets/images/dell-latitude-5420.png" alt="Dell Latitude 5420" width={500} height={300} className="laptop-image bannerOne" />
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className="banner" style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner2 : bannerImages.banner2})`, backgroundPosition: `${deviceWidth <= 1023 ? '20%' : 'center'}`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+                        <div className="text-content">
                             <h1 className="heading-02">Affordable & Trusted <br /> That’s A&T!</h1>
                             <p className="p1">Your Partner in Quality Without Compromise!</p>
                             <p className="p2">Hassle-Free 1-Year Warranty <br /> Affordable Prices, No Hidden Costs <br /> Quick Support, Always Ready</p>
@@ -514,7 +520,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                                 <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => redirectToWhatsapp(e, `Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</a>
                             </div>
                         </div>
-                        <Image src="/assets/images/laptop.png" alt="Floating Laptop" width={500} height={300} className="laptop-image" />
+                        <Image src="/assets/images/laptop.png" alt="Affordable & Trusted That’s A&T!" width={500} height={300} className="laptop-image floatAnim" />
                     </div>
                 </SwiperSlide>
             </Swiper>
