@@ -26,7 +26,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
 
     // banner images
 
-    const [deviceWidth, setDeviceWidth] = useState<number>(window.innerWidth);
+    const [deviceWidth, setDeviceWidth] = useState<number>(0);
     const bannerImages = {
         banner1: "/assets/images/super-sale.png",
         mBanner1: "/assets/images/super-sale-mobile.png",
@@ -51,6 +51,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
     const popupInterval = useRef<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
+        setDeviceWidth(window.innerWidth);
 
         if (typeof window === "undefined") return;
         // click on tab scroll to that section
