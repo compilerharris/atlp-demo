@@ -4874,7 +4874,24 @@ footer .branches-wrp p{
 .banner .bannerOne{
   right: 9vw;
   top: 5vw !important;
-  animation: fadeIn .5s ease-in-out forwards;
+}
+
+.banner .bannerTwo{
+  right: 9vw;
+  top: 6vw !important;
+}
+
+.topToDown{
+  animation: topToDown .7s ease-in-out forwards;
+}
+
+@keyframes topToDown {
+  0% {
+      transform: translateY(-100px);
+  }
+  100% {
+      transform: translateY(0px);
+  }
 }
 
 .banner .bannerThree {
@@ -4884,7 +4901,7 @@ footer .branches-wrp p{
 }
 
 .floatAnim{
-  animation: float 3s ease-in-out infinite, fadeIn .5s ease-in-out forwards;
+  animation: float 3s ease-in-out infinite,   
 }
 
 .fadeInAnim{
@@ -4916,12 +4933,22 @@ footer .branches-wrp p{
     right: 4vw;
     top: 12vw !important;
   }
+
+  .banner .bannerTwo{
+    right: 4vw;
+    top: 13vw !important;
+  }
 }
 
 @media (max-width: 1366px) {
   .banner .bannerOne{
     right: 9vw;
     top: 5vw !important;
+  }
+
+  .banner .bannerTwo{
+    right: 9vw;
+    top: 6vw !important;
   }
 
   .banner .bannerThree {
@@ -4957,6 +4984,11 @@ footer .branches-wrp p{
     top: 10% !important;
     width: 57%;
   }
+  .banner .bannerTwo{
+    right: 19vw;
+    top: 12vw !important;
+    width: 61vw;
+  }
   .banner .bannerThree {
     right: 7vw;
     width: 86vw;
@@ -4991,7 +5023,11 @@ footer .branches-wrp p{
     right: 10vw;
     top: 14% !important;
   }
-  .banner .bannerTwo {
+  .banner .bannerTwo{
+    right: 10vw;
+    top: 32vw !important;
+  }
+  .banner .bannerTwoText {
     margin-top: 50px !important;
   }
   .banner .bannerThree {

@@ -54,7 +54,7 @@ export default function Products({ products, openContactForm }: ProductsProps) {
             }
           </div>
           <div className="readMore">
-              <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => openContactForm(e, "https://www.antservices.in/shop")} target='_blank' className="btn subBtn hover-target">know more</a>
+              <a href={"https://www.antservices.in/shop"} target='_blank' className="btn subBtn hover-target">know more</a>
           </div>
         </div>
       </div>

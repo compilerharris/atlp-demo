@@ -38,6 +38,8 @@ export default function LP({ products, categories }: { products: apiProductRes[]
         mBanner4: "/assets/images/super-sale-mobile.png",
         banner5: "/assets/images/banner.png",
         mBanner5: "/assets/images/banner-01-mobile.jpg",
+        banner6: "/assets/images/banner.png",
+        mBanner6: "/assets/images/banner-01-mobile.jpg",
     }
 
     const redirectToWhatsapp = (e: React.MouseEvent<HTMLAnchorElement>, msg: string) => {
@@ -509,44 +511,44 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                             <p className="p1">1-Year Onsite Warranty Included</p>
                             <p className="p2">11th Gen Intel Core i5 <br /> 14-inch anti-glare screen, backlit keyboard <br /> Weight 1.5 KG, Wi-Fi 6, Bluetooth</p>
                             <div>
-                                <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => openContactForm(e, "https://www.antservices.in/shop")} target='_blank' className="btn btn-red">SHOP NOW</a>
+                                <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => openContactForm(e, "https://www.antservices.in/shop/dell-latitude-5420-i5-11th-gen-1966#attr=888,891,1491")} target='_blank' className="btn btn-red">SHOP NOW</a>
                                 <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => redirectToWhatsapp(e, `Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</a>
                             </div>
                         </div>
-                        <Image src="/assets/images/dell-latitude-5420.png" alt="Dell Latitude 5420" width={500} height={300} className="laptop-image bannerOne" />
+                        <Image src="/assets/images/dell-latitude-5420.png" alt="Dell Latitude 5420" width={500} height={300} className="laptop-image bannerOne topToDown" />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="banner" style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner2 : bannerImages.banner2})`, backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
-                        <div className="text-content bannerTwo">
-                            <h1 className="heading-02">Refurbished MacBook Air <br /> 2020 M1 – Power Meets Perfection</h1>
+                        <div className="text-content bannerTwoText">
+                            <h1 className="heading-02">Refurbished MacBook Air 2020 M1 – Power Meets Perfection</h1>
                             <p className="p1">Subheading Powerful Performance, <br /> Stunning Display, Unmatched Value</p>
                             <p className="p2">Apple M1 Chip – Superfast & energy-efficient <br /> 13.3-inch Retina Display – Crystal-clear visuals <br /> Touch ID & Backlit Keyboard – Secure & seamless access</p>
                             <div>
-                                <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => openContactForm(e, "https://www.antservices.in/shop")} target='_blank' className="btn btn-red">SHOP NOW</a>
+                                <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => openContactForm(e, "https://www.antservices.in/shop/refurbished-macbook-air-2020-m1-545#attr=620,621,630")} target='_blank' className="btn btn-red">SHOP NOW</a>
                                 <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => redirectToWhatsapp(e, `Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</a>
                             </div>
                         </div>
-                        <Image src="/assets/images/Macbook-Air-m1.png" alt="Macbook Air m1" width={500} height={300} className="laptop-image bannerOne" />
+                        <Image src="/assets/images/Macbook-Air-m1.png" alt="Macbook Air m1" width={500} height={300} className="laptop-image bannerTwo topToDown" />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="banner" style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner3 : bannerImages.banner3})`, backgroundPosition: `${deviceWidth <= 1023 ? '20%' : 'center'}`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
-                        <div className="text-content">
-                            <h1 className="heading-02">Refurbished Desktop <br /> with Brand-New Upgrades!</h1>
-                            <p className="p1">1-Year On-Site Warranty | 10-Day <br /> Replacement | Expert Support </p>
-                            <p className="p2">Intel i3 6th Gen, 8GB DDR4 RAM <br /> 256GB SSD (New) for fast performance <br /> 19&quot; TFT, Keyboard & Mouse (New)</p>
+                        <div className="text-content bannerTwoText">
+                            <h1 className="heading-02">Best for Startups: Get 80% Discounted Price + Warranty</h1>
+                            <p className="p1">Refurbished Laptops, Desktops & Servers <br /> from Dell, HP, Lenovo, Apple</p>
+                            <p className="p2">Save Up to 70% Off Retail Prices! <br /> 1-Year On-Site Warranty | 10-Day Replacement | Expert Support <br /> Free Delivery | Bulk Business Discounts | 500+ 5★ Reviews</p>
                             <div>
                                 <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => openContactForm(e, "https://www.antservices.in/shop")} target='_blank' className="btn btn-red">SHOP NOW</a>
                                 <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => redirectToWhatsapp(e, `Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</a>
                             </div>
                         </div>
-                        <Image src="/assets/images/laptop4.png" alt="Laptop Collection" width={500} height={300} className="laptop-image bannerThree" />
+                        <Image src="/assets/images/laptop4.png" alt="Laptop Collection" width={500} height={300} className="laptop-image bannerThree topToDown" />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="banner" style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner4 : bannerImages.banner4})`, backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
-                        <div className="text-content bannerTwo">
+                        <div className="text-content bannerTwoText">
                             <h1 className="heading-02">Refurbished Desktop <br /> with Brand-New Upgrades!</h1>
                             <p className="p1">1-Year On-Site Warranty | 10-Day <br /> Replacement | Expert Support </p>
                             <p className="p2">Intel i3 6th Gen, 8GB DDR4 RAM <br /> 256GB SSD (New) for fast performance <br /> 19&quot; TFT, Keyboard & Mouse (New)</p>
@@ -555,11 +557,25 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                                 <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => redirectToWhatsapp(e, `Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</a>
                             </div>
                         </div>
-                        <Image src="/assets/images/Dell-Optiplex-3040.png" alt="Dell Optiplex 3040" width={500} height={300} className="laptop-image bannerOne" />
+                        <Image src="/assets/images/Dell-Optiplex-3040.png" alt="Dell Optiplex 3040" width={500} height={300} className="laptop-image bannerOne topToDown" />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="banner" style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner5 : bannerImages.banner5})`, backgroundPosition: `${deviceWidth <= 1023 ? '20%' : 'center'}`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+                        <div className="text-content">
+                            <h1 className="heading-02">Power Your Business <br /> with Industrial-Grade Workstation Servers!</h1>
+                            <p className="p1">High-Performance | Scalable Solutions | 24/7 Expert Support</p>
+                            <p className="p2">Dual Xeon 8-Core Processor | 96GB DDR4 RAM | 1TB SSD Storage Ready for Heavy Workloads <br /> Bulk Pricing for Businesses | Custom Configurations</p>
+                            <div>
+                                <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => openContactForm(e, "https://www.antservices.in/shop")} target='_blank' className="btn btn-red">SHOP NOW</a>
+                                <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => redirectToWhatsapp(e, `Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</a>
+                            </div>
+                        </div>
+                        <Image src="/assets/images/Server.png" alt="Server" width={500} height={300} className="laptop-image bannerOne topToDown" />
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className="banner" style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner6 : bannerImages.banner6})`, backgroundPosition: `${deviceWidth <= 1023 ? '20%' : 'center'}`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
                         <div className="text-content">
                             <h1 className="heading-02">Affordable & Trusted <br /> That’s A&T!</h1>
                             <p className="p1">Your Partner in Quality Without Compromise!</p>
