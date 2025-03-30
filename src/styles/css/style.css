@@ -4877,6 +4877,12 @@ footer .branches-wrp p{
   animation: fadeIn .5s ease-in-out forwards;
 }
 
+.banner .bannerThree {
+  right: 0vw;
+  top: 0vw;
+  width: 50vw;
+}
+
 .floatAnim{
   animation: float 3s ease-in-out infinite, fadeIn .5s ease-in-out forwards;
 }
@@ -4917,6 +4923,12 @@ footer .branches-wrp p{
     right: 9vw;
     top: 5vw !important;
   }
+
+  .banner .bannerThree {
+    right: 2vw;
+    top: -5vw;
+    width: 50vw;
+  }
 }
 
 @media (max-width: 1199px) {
@@ -4944,6 +4956,10 @@ footer .branches-wrp p{
     right: 21vw;
     top: 10% !important;
     width: 57%;
+  }
+  .banner .bannerThree {
+    right: 7vw;
+    width: 86vw;
   }
   .banner .text-content {
     width: 100%;
@@ -4974,6 +4990,14 @@ footer .branches-wrp p{
   .banner .bannerOne {
     right: 10vw;
     top: 14% !important;
+  }
+  .banner .bannerTwo {
+    margin-top: 50px !important;
+  }
+  .banner .bannerThree {
+    right: 0vw;
+    top: 11%;
+    width: 100vw;
   }
   @keyframes fadeIn {
     from {

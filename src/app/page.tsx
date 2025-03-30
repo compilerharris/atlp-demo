@@ -29,7 +29,7 @@ export default async function Home() {
   };
   try {
     // const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL_LIVE}/get_top_performing`,{ cache: "no-store" });
-    const res = await fetch(`https://www.antservices.in/get_top_performing`,{ cache: "no-store" });
+    const res = await fetch(`https://www.antservices.in/get_top_performing`,{ cache: "force-cache", next: { revalidate: 60 } });
     if (!res.ok) throw new Error("Failed to fetch data");
     props = await res.json();
     

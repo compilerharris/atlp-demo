@@ -30,8 +30,14 @@ export default function LP({ products, categories }: { products: apiProductRes[]
     const bannerImages = {
         banner1: "/assets/images/super-sale.png",
         mBanner1: "/assets/images/super-sale-mobile.png",
-        banner2: "/assets/images/banner.png",
-        mBanner2: "/assets/images/banner-01-mobile.jpg",
+        banner2: "/assets/images/banner2.png",
+        mBanner2: "/assets/images/banner-mobile2.png",
+        banner3: "/assets/images/banner.png",
+        mBanner3: "/assets/images/banner-01-mobile.jpg",
+        banner4: "/assets/images/super-sale.png",
+        mBanner4: "/assets/images/super-sale-mobile.png",
+        banner5: "/assets/images/banner.png",
+        mBanner5: "/assets/images/banner-01-mobile.jpg",
     }
 
     const redirectToWhatsapp = (e: React.MouseEvent<HTMLAnchorElement>, msg: string) => {
@@ -511,7 +517,49 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="banner" style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner2 : bannerImages.banner2})`, backgroundPosition: `${deviceWidth <= 1023 ? '20%' : 'center'}`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+                    <div className="banner" style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner2 : bannerImages.banner2})`, backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+                        <div className="text-content bannerTwo">
+                            <h1 className="heading-02">Refurbished MacBook Air <br /> 2020 M1 – Power Meets Perfection</h1>
+                            <p className="p1">Subheading Powerful Performance, <br /> Stunning Display, Unmatched Value</p>
+                            <p className="p2">Apple M1 Chip – Superfast & energy-efficient <br /> 13.3-inch Retina Display – Crystal-clear visuals <br /> Touch ID & Backlit Keyboard – Secure & seamless access</p>
+                            <div>
+                                <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => openContactForm(e, "https://www.antservices.in/shop")} target='_blank' className="btn btn-red">SHOP NOW</a>
+                                <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => redirectToWhatsapp(e, `Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</a>
+                            </div>
+                        </div>
+                        <Image src="/assets/images/Macbook-Air-m1.png" alt="Macbook Air m1" width={500} height={300} className="laptop-image bannerOne" />
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className="banner" style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner3 : bannerImages.banner3})`, backgroundPosition: `${deviceWidth <= 1023 ? '20%' : 'center'}`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+                        <div className="text-content">
+                            <h1 className="heading-02">Refurbished Desktop <br /> with Brand-New Upgrades!</h1>
+                            <p className="p1">1-Year On-Site Warranty | 10-Day <br /> Replacement | Expert Support </p>
+                            <p className="p2">Intel i3 6th Gen, 8GB DDR4 RAM <br /> 256GB SSD (New) for fast performance <br /> 19" TFT, Keyboard & Mouse (New)</p>
+                            <div>
+                                <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => openContactForm(e, "https://www.antservices.in/shop")} target='_blank' className="btn btn-red">SHOP NOW</a>
+                                <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => redirectToWhatsapp(e, `Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</a>
+                            </div>
+                        </div>
+                        <Image src="/assets/images/laptop4.png" alt="Laptop Collection" width={500} height={300} className="laptop-image bannerThree" />
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className="banner" style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner4 : bannerImages.banner4})`, backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+                        <div className="text-content bannerTwo">
+                            <h1 className="heading-02">Refurbished Desktop <br /> with Brand-New Upgrades!</h1>
+                            <p className="p1">1-Year On-Site Warranty | 10-Day <br /> Replacement | Expert Support </p>
+                            <p className="p2">Intel i3 6th Gen, 8GB DDR4 RAM <br /> 256GB SSD (New) for fast performance <br /> 19" TFT, Keyboard & Mouse (New)</p>
+                            <div>
+                                <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => openContactForm(e, "https://www.antservices.in/shop")} target='_blank' className="btn btn-red">SHOP NOW</a>
+                                <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => redirectToWhatsapp(e, `Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</a>
+                            </div>
+                        </div>
+                        <Image src="/assets/images/Dell-Optiplex-3040.png" alt="Dell Optiplex 3040" width={500} height={300} className="laptop-image bannerOne" />
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className="banner" style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner5 : bannerImages.banner5})`, backgroundPosition: `${deviceWidth <= 1023 ? '20%' : 'center'}`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
                         <div className="text-content">
                             <h1 className="heading-02">Affordable & Trusted <br /> That’s A&T!</h1>
                             <p className="p1">Your Partner in Quality Without Compromise!</p>
