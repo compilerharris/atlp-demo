@@ -585,7 +585,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                                 <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => redirectToWhatsapp(e, `Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</a>
                             </div>
                         </div>
-                        <Image src="/assets/images/laptop.png" alt="Affordable & Trusted That’s A&T!" width={500} height={300} className="laptop-image floatAnim" />
+                        <Image src="/assets/images/laptop.png" alt="Affordable & Trusted That’s A&T!" width={500} height={300} className="laptop-image floatAnim fadeInAnim" />
                     </div>
                 </SwiperSlide>
             </Swiper>
