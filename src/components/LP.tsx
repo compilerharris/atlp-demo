@@ -535,7 +535,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                         <div className="text-content">
                             <h1 className="heading-02">Refurbished Desktop <br /> with Brand-New Upgrades!</h1>
                             <p className="p1">1-Year On-Site Warranty | 10-Day <br /> Replacement | Expert Support </p>
-                            <p className="p2">Intel i3 6th Gen, 8GB DDR4 RAM <br /> 256GB SSD (New) for fast performance <br /> 19" TFT, Keyboard & Mouse (New)</p>
+                            <p className="p2">Intel i3 6th Gen, 8GB DDR4 RAM <br /> 256GB SSD (New) for fast performance <br /> 19&quot; TFT, Keyboard & Mouse (New)</p>
                             <div>
                                 <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => openContactForm(e, "https://www.antservices.in/shop")} target='_blank' className="btn btn-red">SHOP NOW</a>
                                 <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => redirectToWhatsapp(e, `Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</a>
@@ -549,7 +549,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                         <div className="text-content bannerTwo">
                             <h1 className="heading-02">Refurbished Desktop <br /> with Brand-New Upgrades!</h1>
                             <p className="p1">1-Year On-Site Warranty | 10-Day <br /> Replacement | Expert Support </p>
-                            <p className="p2">Intel i3 6th Gen, 8GB DDR4 RAM <br /> 256GB SSD (New) for fast performance <br /> 19" TFT, Keyboard & Mouse (New)</p>
+                            <p className="p2">Intel i3 6th Gen, 8GB DDR4 RAM <br /> 256GB SSD (New) for fast performance <br /> 19&quot; TFT, Keyboard & Mouse (New)</p>
                             <div>
                                 <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => openContactForm(e, "https://www.antservices.in/shop")} target='_blank' className="btn btn-red">SHOP NOW</a>
                                 <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => redirectToWhatsapp(e, `Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</a>
