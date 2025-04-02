@@ -6,13 +6,12 @@ import Image from "next/image";
 
 interface ProductsProps {
   products: apiProductRes[];
-  openContactForm: (e: React.MouseEvent<HTMLAnchorElement>, url: string) => void;
+  openContactForm: (url: string) => void;
 }
 
 export default function Products({ products, openContactForm }: ProductsProps) {
 
-  const redirectToWhatsapp = (e: React.MouseEvent<HTMLAnchorElement>, productName: string) => {
-      e.preventDefault();
+  const redirectToWhatsapp = (productName: string) => {
       const phoneNumber = '+919599090603';
       const message = encodeURIComponent(`Hey A&T Services Inc. Team,\n\nI am interested to buy ${productName}.\n\nPlease provide more details.`);
       window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
@@ -45,8 +44,8 @@ export default function Products({ products, openContactForm }: ProductsProps) {
                     <p className="title">{product.title}</p>
                     <p className="price">₹ {product.price}</p>
                     <div className="cta">
-                      <a onClick={(e: React.MouseEvent<HTMLAnchorElement>) => openContactForm(e, `https://www.antservices.in${product.productPageUrl}`)} target="_blank" className="btn btn-red">Buy Now</a>
-                      <a onClick={(e)=>{redirectToWhatsapp(e, product.title)}} className="btn">Chat Now</a>
+                      <button onClick={() => openContactForm(`https://www.antservices.in${product.productPageUrl}`)} className="btn btn-red">Buy Now</button>
+                      <button onClick={()=>{redirectToWhatsapp(product.title)}} className="btn">Chat Now</button>
                     </div>
                   </div>
                 )

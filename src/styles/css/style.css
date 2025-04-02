@@ -103,7 +103,7 @@ body {
   margin: 20px 0 10px;
 }
 
-.card .cta a {
+.card .cta button.btn {
   /* padding: 20px 40px; */
   width: 48%;
 }
@@ -112,11 +112,11 @@ body {
   text-align: center;
 }
 
-.products .readMore a{
+.products .readMore button.btn{
   color: #f13227;
 }
 
-.products .readMore a:hover{
+.products .readMore button.btn:hover{
   background: #f13227;
   color: #fff;
   border-color: #f13227;
@@ -169,7 +169,7 @@ body {
   font-size: 18px;
 }
 
-.category .counter-innr .category-card a {
+.category .counter-innr .category-card button.btn {
   margin-top: auto;
 }
 
