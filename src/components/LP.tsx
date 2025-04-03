@@ -26,21 +26,21 @@ export default function LP({ products, categories }: { products: apiProductRes[]
 
     // banner images
 
-    const [deviceWidth, setDeviceWidth] = useState<number>(0);
-    const bannerImages = {
-        banner1: "/assets/images/super-sale.png",
-        mBanner1: "/assets/images/super-sale-mobile.png",
-        banner2: "/assets/images/banner2.png",
-        mBanner2: "/assets/images/banner-mobile2.png",
-        banner3: "/assets/images/banner.png",
-        mBanner3: "/assets/images/banner-01-mobile.jpg",
-        banner4: "/assets/images/super-sale.png",
-        mBanner4: "/assets/images/super-sale-mobile.png",
-        banner5: "/assets/images/banner.png",
-        mBanner5: "/assets/images/banner-01-mobile.jpg",
-        banner6: "/assets/images/banner.png",
-        mBanner6: "/assets/images/banner-01-mobile.jpg",
-    }
+    // const [deviceWidth, setDeviceWidth] = useState<number>(0);
+    // const bannerImages = {
+    //     banner1: "/assets/images/super-sale.png",
+    //     mBanner1: "/assets/images/super-sale-mobile.png",
+    //     banner2: "/assets/images/banner2.png",
+    //     mBanner2: "/assets/images/banner-mobile2.png",
+    //     banner3: "/assets/images/banner.png",
+    //     mBanner3: "/assets/images/banner-01-mobile.jpg",
+    //     banner4: "/assets/images/super-sale.png",
+    //     mBanner4: "/assets/images/super-sale-mobile.png",
+    //     banner5: "/assets/images/banner.png",
+    //     mBanner5: "/assets/images/banner-01-mobile.jpg",
+    //     banner6: "/assets/images/banner.png",
+    //     mBanner6: "/assets/images/banner-01-mobile.jpg",
+    // }
 
     const redirectToWhatsapp = (msg: string) => {
         const phoneNumber = '+919599090603';
@@ -58,7 +58,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
     const popupInterval = useRef<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
-        setDeviceWidth(window.innerWidth);
+        // setDeviceWidth(window.innerWidth);
 
         if (typeof window === "undefined") return;
         // click on tab scroll to that section
@@ -310,7 +310,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
             ScrollTrigger.refresh();
             setParallaxEffect();
             allAnimation();
-            setDeviceWidth(window.innerWidth);
+            // setDeviceWidth(window.innerWidth);
         };
 
         window.addEventListener("resize", handleResize);
@@ -503,25 +503,28 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                 className="counter-wrp margin-t-1 anim_fade_in_wrp"
             >
                 <SwiperSlide>
-                    <div className="banner" style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner1 : bannerImages.banner1})`, backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
-                        <div className="text-content">
-                            <h1 className="heading-02">Dell Latitude 5420</h1>
-                            <p className="p1">1-Year Onsite Warranty Included</p>
-                            <p className="p2">11th Gen Intel Core i5 <br /> 14-inch anti-glare screen, backlit keyboard <br /> Weight 1.5 KG, Wi-Fi 6, Bluetooth</p>
-                            <div>
-                                <button onClick={() => openContactForm("https://www.antservices.in/shop/dell-latitude-5420-i5-11th-gen-1966#attr=888,891,1491")} className="btn btn-red">SHOP NOW</button>
-                                <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button>
-                            </div>
+                {/* style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner6 : bannerImages.banner6})`, backgroundPosition: `${deviceWidth <= 1023 ? '20%' : 'center'}`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}} */}
+                <div className="banner">
+                    <div className="text-content">
+                        <h1 className="heading-02">Affordable & Trusted <br /> That’s A&T!</h1>
+                        <p className="p1">Your Partner in Quality Without Compromise!</p>
+                        <p className="p2">Hassle-Free 1-Year Warranty <br /> Affordable Prices, No Hidden Costs <br /> Quick Support, Always Ready</p>
+                        <div>
+                            <button onClick={() => openContactForm("https://www.antservices.in/shop")} className="btn btn-red">SHOP NOW</button>
+                            <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button>
                         </div>
-                        <Image src="/assets/images/dell-latitude-5420.png" alt="Dell Latitude 5420" width={500} height={300} className="laptop-image bannerOne topToDown" />
                     </div>
+                    <Image src="/assets/images/laptop.png" alt="Affordable & Trusted That’s A&T!" width={500} height={300} className="laptop-image floatAnim fadeInAnim" />
+                </div>
                 </SwiperSlide>
+                
                 <SwiperSlide>
-                    <div className="banner" style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner2 : bannerImages.banner2})`, backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
-                        <div className="text-content bannerTwoText">
-                            <h1 className="heading-02">Refurbished MacBook Air 2020 M1 – Power Meets Perfection</h1>
-                            <p className="p1">Subheading Powerful Performance, <br /> Stunning Display, Unmatched Value</p>
-                            <p className="p2">Apple M1 Chip – Superfast & energy-efficient <br /> 13.3-inch Retina Display – Crystal-clear visuals <br /> Touch ID & Backlit Keyboard – Secure & seamless access</p>
+                    {/* style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner2 : bannerImages.banner2})`, backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundSize: "cover"}} */}
+                    <div className="banner">
+                        <div className="text-content">
+                            <h1 className="heading-02">Refurbished MacBook <br /> Air 2020 M1</h1>
+                            <p className="p1">Apple M1 chip - delivering lightning - fast performance</p>
+                            <p className="p2">Apple M1 Chip – Superfast & efficient <br /> 13.3&quot; Retina Display – Stunning clarity <br /> Touch ID & Backlit Keyboard</p>
                             <div>
                                 <button onClick={() => openContactForm("https://www.antservices.in/shop/refurbished-macbook-air-2020-m1-545#attr=620,621,630")} className="btn btn-red">SHOP NOW</button>
                                 <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button>
@@ -530,12 +533,14 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                         <Image src="/assets/images/Macbook-Air-m1.png" alt="Macbook Air m1" width={500} height={300} className="laptop-image bannerTwo topToDown" />
                     </div>
                 </SwiperSlide>
+                
                 <SwiperSlide>
-                    <div className="banner" style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner3 : bannerImages.banner3})`, backgroundPosition: `${deviceWidth <= 1023 ? '20%' : 'center'}`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+                    {/* style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner3 : bannerImages.banner3})`, backgroundPosition: `${deviceWidth <= 1023 ? '20%' : 'center'}`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}} */}
+                    <div className="banner">
                         <div className="text-content bannerTwoText">
-                            <h1 className="heading-02">Best for Startups: Get 80% Discounted Price + Warranty</h1>
-                            <p className="p1">Refurbished Laptops, Desktops & Servers <br /> from Dell, HP, Lenovo, Apple</p>
-                            <p className="p2">Save Up to 70% Off Retail Prices! <br /> 1-Year On-Site Warranty | 10-Day Replacement | Expert Support <br /> Free Delivery | Bulk Business Discounts | 500+ 5★ Reviews</p>
+                            <h1 className="heading-02">India’s Best Quality & Price: Premium Refurbished PC</h1>
+                            <p className="p1">Refurbished Laptops, Desktops & <br />Workstations – Quality You Can Trust, <br />Prices You’ll Love!</p>
+                            <p className="p2">Priority Corporate Support <br /> Enterprise-Grade Quality <br /> Customized for Your Needs</p>
                             <div>
                                 <button onClick={() => openContactForm("https://www.antservices.in/shop")} className="btn btn-red">SHOP NOW</button>
                                 <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button>
@@ -544,26 +549,14 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                         <Image src="/assets/images/laptop4.png" alt="Laptop Collection" width={500} height={300} className="laptop-image bannerThree topToDown" />
                     </div>
                 </SwiperSlide>
+                
                 <SwiperSlide>
-                    <div className="banner" style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner4 : bannerImages.banner4})`, backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
-                        <div className="text-content bannerTwoText">
-                            <h1 className="heading-02">Refurbished Desktop <br /> with Brand-New Upgrades!</h1>
-                            <p className="p1">1-Year On-Site Warranty | 10-Day <br /> Replacement | Expert Support </p>
-                            <p className="p2">Intel i3 6th Gen, 8GB DDR4 RAM <br /> 256GB SSD (New) for fast performance <br /> 19&quot; TFT, Keyboard & Mouse (New)</p>
-                            <div>
-                                <button onClick={() => openContactForm("https://www.antservices.in/shop")} className="btn btn-red">SHOP NOW</button>
-                                <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button>
-                            </div>
-                        </div>
-                        <Image src="/assets/images/Dell-Optiplex-3040.png" alt="Dell Optiplex 3040" width={500} height={300} className="laptop-image bannerOne topToDown" />
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="banner" style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner5 : bannerImages.banner5})`, backgroundPosition: `${deviceWidth <= 1023 ? '20%' : 'center'}`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+                    {/* style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner5 : bannerImages.banner5})`, backgroundPosition: `${deviceWidth <= 1023 ? '20%' : 'center'}`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}} */}
+                    <div className="banner">
                         <div className="text-content">
-                            <h1 className="heading-02">Power Your Business <br /> with Industrial-Grade Workstation Servers!</h1>
-                            <p className="p1">High-Performance | Scalable Solutions | 24/7 Expert Support</p>
-                            <p className="p2">Dual Xeon 8-Core Processor | 96GB DDR4 RAM | 1TB SSD Storage Ready for Heavy Workloads <br /> Bulk Pricing for Businesses | Custom Configurations</p>
+                            <h1 className="heading-02">High-Performance Workstation Servers</h1>
+                            <p className="p1">Built for Speed, Reliability, and Scalability</p>
+                            <p className="p2">Dual Xeon 8-Core | 96GB RAM | 1TB SSD <br /> Built for Heavy Workloads <br /> Bulk Pricing & Custom Configurations</p>
                             <div>
                                 <button onClick={() => openContactForm("https://www.antservices.in/shop")} className="btn btn-red">SHOP NOW</button>
                                 <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button>
@@ -572,18 +565,36 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                         <Image src="/assets/images/Server.png" alt="Server" width={500} height={300} className="laptop-image bannerOne topToDown" />
                     </div>
                 </SwiperSlide>
-                <SwiperSlide>
-                    <div className="banner" style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner6 : bannerImages.banner6})`, backgroundPosition: `${deviceWidth <= 1023 ? '20%' : 'center'}`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+                
+                <SwiperSlide>   
+                    {/* style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner1 : bannerImages.banner1})`, backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundSize: "cover"}} */}
+                    <div className="banner">
                         <div className="text-content">
-                            <h1 className="heading-02">Affordable & Trusted <br /> That’s A&T!</h1>
-                            <p className="p1">Your Partner in Quality Without Compromise!</p>
-                            <p className="p2">Hassle-Free 1-Year Warranty <br /> Affordable Prices, No Hidden Costs <br /> Quick Support, Always Ready</p>
+                            <h1 className="heading-02">Premium Refurbished Laptops for Startups & Enterprises</h1>
+                            <p className="p1">Power Your Business with Refurbished Excellence</p>
+                            <p className="p2">Top-Quality Refurbished Systems <br /> 1-Year On-Site Warranty <br /> Quick Support for Corporate Clients</p>
+                            <div>
+                                <button onClick={() => openContactForm("https://www.antservices.in/shop/dell-latitude-5420-i5-11th-gen-1966#attr=888,891,1491")} className="btn btn-red">SHOP NOW</button>
+                                <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button>
+                            </div>
+                        </div>
+                        <Image src="/assets/images/dell-latitude-5420.png" alt="Dell Latitude 5420" width={500} height={300} className="laptop-image bannerOne topToDown" />
+                    </div>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                    {/* style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner4 : bannerImages.banner4})`, backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundSize: "cover"}} */}
+                    <div className="banner">
+                        <div className="text-content bannerTwoText">
+                            <h1 className="heading-02">High-Performance Business Series <br />Desktops</h1>
+                            <p className="p1">Tested & Certified | 1-Year On-Site Warranty | <br />Special Corporate Support</p>
+                            <p className="p2">Your Dream Desktop – Refurbished <br /> New Monitor, Keyboard, Mouse, RAM & SSD <br /> 1-Year Warranty – Affordable Price</p>
                             <div>
                                 <button onClick={() => openContactForm("https://www.antservices.in/shop")} className="btn btn-red">SHOP NOW</button>
                                 <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button>
                             </div>
                         </div>
-                        <Image src="/assets/images/laptop.png" alt="Affordable & Trusted That’s A&T!" width={500} height={300} className="laptop-image floatAnim fadeInAnim" />
+                        <Image src="/assets/images/Dell-Optiplex-3040.png" alt="Dell Optiplex 3040" width={500} height={300} className="laptop-image bannerOne topToDown" />
                     </div>
                 </SwiperSlide>
             </Swiper>
