@@ -444,7 +444,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
             <nav className="navbar header">
                 <div className="navbar-brand">
                     <Link className="navbar-item hass-text-centered" href="/">
-                        <Image src="/assets/images/logo.png" alt="Logo | A&T Services Inc." width={500} height={300} />
+                        <img src="/assets/images/logo.png" alt="Logo | A&T Services Inc."/>
                     </Link>
                 </div>
 
