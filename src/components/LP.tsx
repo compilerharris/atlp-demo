@@ -444,7 +444,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
             <nav className="navbar header">
                 <div className="navbar-brand">
                     <Link className="navbar-item hass-text-centered" href="/">
-                        <Image src="/assets/images/logo.png" alt="Logo | A&T Services Inc." width={500} height={300}/>
+                        <Image src="/assets/images/logo.webp" alt="Logo | A&T Services Inc." width={500} height={300}/>
                     </Link>
                 </div>
 
@@ -467,7 +467,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                                 <p className="navbar-phone-icon control">
                                     <a href="tel:+919599090603">
                                         <span className="call-icon">
-                                            <Image src="/assets/images/call-icon.png" alt="Call Icon | A&T Services Inc." width={10} height={10} />
+                                            <Image src="/assets/images/call-icon.webp" alt="Call Icon | A&T Services Inc." width={10} height={10} />
                                         </span>
                                         <span>+91 95 9909 0603</span>
                                     </a>
@@ -514,7 +514,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                             <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button>
                         </div>
                     </div>
-                    <Image src="/assets/images/laptop.png" alt="Affordable & Trusted That’s A&T!" width={500} height={300} className="laptop-image floatAnim fadeInAnim" />
+                    <Image src="/assets/images/laptop.webp" alt="Affordable & Trusted That’s A&T!" width={500} height={300} className="laptop-image floatAnim fadeInAnim" />
                 </div>
                 </SwiperSlide>
                 
@@ -530,7 +530,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                                 <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button>
                             </div>
                         </div>
-                        <Image src="/assets/images/Macbook-Air-m1.png" alt="Macbook Air m1" width={500} height={300} className="laptop-image bannerTwo topToDown" />
+                        <Image src="/assets/images/Macbook-Air-m1.webp" alt="Macbook Air m1" width={500} height={300} className="laptop-image bannerTwo topToDown" />
                     </div>
                 </SwiperSlide>
                 
@@ -546,7 +546,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                                 <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button>
                             </div>
                         </div>
-                        <Image src="/assets/images/laptop4.png" alt="Laptop Collection" width={500} height={300} className="laptop-image bannerThree topToDown" />
+                        <Image src="/assets/images/laptop4.webp" alt="Laptop Collection" width={500} height={300} className="laptop-image bannerThree topToDown" />
                     </div>
                 </SwiperSlide>
                 
@@ -562,7 +562,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                                 <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button>
                             </div>
                         </div>
-                        <Image src="/assets/images/Server1.png" alt="Server" width={500} height={300} className="laptop-image bannerOne topToDown" />
+                        <Image src="/assets/images/Server1.webp" alt="Server" width={500} height={300} className="laptop-image bannerOne topToDown" />
                     </div>
                 </SwiperSlide>
                 
@@ -578,7 +578,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                                 <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button>
                             </div>
                         </div>
-                        <Image src="/assets/images/dell-latitude-5420.png" alt="Dell Latitude 5420" width={500} height={300} className="laptop-image bannerOne topToDown" />
+                        <Image src="/assets/images/dell-latitude-5420.webp" alt="Dell Latitude 5420" width={500} height={300} className="laptop-image bannerOne topToDown" />
                     </div>
                 </SwiperSlide>
 
@@ -594,7 +594,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                                 <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button>
                             </div>
                         </div>
-                        <Image src="/assets/images/Dell-Optiplex-3040.png" alt="Dell Optiplex 3040" width={500} height={300} className="laptop-image bannerOne topToDown" />
+                        <Image src="/assets/images/Dell-Optiplex-3040.webp" alt="Dell Optiplex 3040" width={500} height={300} className="laptop-image bannerOne topToDown" />
                     </div>
                 </SwiperSlide>
             </Swiper>
@@ -636,34 +636,34 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                                 </div> */}
                             <SwiperSlide>
                                 <div className="counter-innr">
-                                    <Image src="/assets/images/1-year-warranty.png" alt="" width={500} height={300} />
+                                    <Image src="/assets/images/1-year-warranty.webp" alt="" width={500} height={300} />
                                     {/* <p className="p1 is-white">1</p> */}
                                     <p className="p2 is-white">1 Year Warranty</p>
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide>
                                 <div className="counter-innr">
-                                    <Image src="/assets/images/72-Qualitty-check.png" alt="" width={500} height={300} />
+                                    <Image src="/assets/images/72-Qualitty-check.webp" alt="" width={500} height={300} />
                                     {/* <p className="p1 is-white">72</p> */}
                                     <p className="p2 is-white">72 Quality Checks</p>
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide>
                                 <div className="counter-innr">
-                                    <Image src="/assets/images/10-day-replacement.png" alt="" width={500} height={300} />
+                                    <Image src="/assets/images/10-day-replacement.webp" alt="" width={500} height={300} />
                                     {/* <p className="p1 is-white">10</p> */}
                                     <p className="p2 is-white">10 Day Replacement</p>
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide>
                                 <div className="counter-innr">
-                                    <Image src="/assets/images/amc.png" alt="" width={500} height={300} />
+                                    <Image src="/assets/images/amc.webp" alt="" width={500} height={300} />
                                     <p className="p2 is-white">Reliable After-Sales Service</p>
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide>
                                 <div className="counter-innr">
-                                    <Image src="/assets/images/free-delivery.png" alt="" width={500} height={300} />
+                                    <Image src="/assets/images/free-delivery.webp" alt="" width={500} height={300} />
                                     <p className="p2 is-white">Free Delivery</p>
                                 </div>
                             </SwiperSlide>
@@ -682,7 +682,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                 <a href="https://www.youtube.com/embed/xcWIX0uGv7I" className="normal-video" data-fancybox="project_overview">
                     <div className="video-thumb active">
                         <div className="img-wrp ">
-                            <Image src="/assets/images/video-thumbnail.png" width={1920} height={1000} className="thumb ls-is-cached" alt="Introductory Video Thumbnail | A&T Services Inc." title="Introductory Video Thumbnail | A&T Services Inc." />
+                            <Image src="/assets/images/video-thumbnail.webp" width={1920} height={1000} className="thumb ls-is-cached" alt="Introductory Video Thumbnail | A&T Services Inc." title="Introductory Video Thumbnail | A&T Services Inc." />
                         </div>
                         <div className="play-btn-wrp anim_b_t_t_wrp anim_b_t_t">
                             <span className="play-btn-circle circle-fade-in is-gradient-fill"><span></span></span>
@@ -726,7 +726,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                                 categories.sort((a, b) => a.sequence - b.sequence).map((category, index) => {
                                     return (
                                         <SwiperSlide key={index}>
-                                            <div className="counter-innr" style={{ backgroundImage: `url('/assets/images/Cat${index + 1}.png')` }}>
+                                            <div className="counter-innr" style={{ backgroundImage: `url('/assets/images/Cat${index + 1}.webp')` }}>
                                                 <div className="category-card">
                                                     <h2>{category.name}</h2>
                                                     {/* <p>Office Laptop one liner</p> */}
@@ -788,17 +788,17 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                         {/* by brands */}
                         <div className="shopCard brands">
                             <div className="shopItem fade-in-anim">
-                                <Image src="/assets/images/dell.png" width={1920} height={1000} alt='Dell Refurbished Laptops' />
+                                <Image src="/assets/images/dell.webp" width={1920} height={1000} alt='Dell Refurbished Laptops' />
                                 <h2>Dell Refurbished Laptops</h2>
                                 <button onClick={() => openContactForm(`https://www.antservices.in/shop?search=dell`)} className="btn btn-red">SHOP NOW</button>
                             </div>
                             <div className="shopItem fade-in-anim">
-                                <Image src="/assets/images/hp.png" width={1920} height={1000} alt='HP Refurbished Laptops' />
+                                <Image src="/assets/images/hp.webp" width={1920} height={1000} alt='HP Refurbished Laptops' />
                                 <h2>HP Refurbished Laptops</h2>
                                 <button onClick={() => openContactForm(`https://www.antservices.in/shop?search=hp`)} className="btn btn-red">SHOP NOW</button>
                             </div>
                             <div className="shopItem fade-in-anim">
-                                <Image src="/assets/images/lenovo.png" width={1920} height={1000} alt='Lenovo Refurbished Laptops' />
+                                <Image src="/assets/images/lenovo.webp" width={1920} height={1000} alt='Lenovo Refurbished Laptops' />
                                 <h2>Lenovo Refurbished Laptops</h2>
                                 <button onClick={() => openContactForm(`https://www.antservices.in/shop?search=lenovo`)} className="btn btn-red">SHOP NOW</button>
                             </div>
@@ -868,7 +868,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                                         <div className="stars">★★★★★</div>
                                         <h3>I recently purchased a refurbished laptop from A&T Services Inc., and I am thoroughly impressed! The quality of the product was outstanding, and the price was incredibly affordable. Their expert technical team provided excellent support, answering all my queries and ensuring a smooth setup.What stood out the most was their timely service and genuine focus on customer satisfaction. It&apos;s clear that they value their clients and strive to deliver the best experience possible. I highly recommend A&T Services Inc. to anyone looking for reliable IT solutions at great prices!</h3>
                                         <div className="user-info">
-                                            <Image src="/assets/images/test4.png" alt="Customer Review | A&T Services Inc." title="Customer Review | A&T Services Inc." width={1000} height={1000} />
+                                            <Image src="/assets/images/test4.webp" alt="Customer Review | A&T Services Inc." title="Customer Review | A&T Services Inc." width={1000} height={1000} />
                                             <div>
                                                 <h4>Yogesh Kumar</h4>
                                                 {/* <p>CEO Universal</p> */}
@@ -881,7 +881,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                                         <div className="stars">★★★★★</div>
                                         <h3>I purchase laptops and desktops both from A & T Services Inc. regularly, All systems are good in performance and conditions. And also service is too good delivery and support. Thanks A & T SERVICES for best price and good service</h3>
                                         <div className="user-info">
-                                            <Image src="/assets/images/test5.png" alt="Customer Review | A&T Services Inc." title="Customer Review | A&T Services Inc." width={1000} height={1000} />
+                                            <Image src="/assets/images/test5.webp" alt="Customer Review | A&T Services Inc." title="Customer Review | A&T Services Inc." width={1000} height={1000} />
                                             <div>
                                                 <h4>Aspirants Classes</h4>
                                                 {/* <p>CEO Universal</p> */}
@@ -894,7 +894,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                                         <div className="stars">★★★★★</div>
                                         <h3>I recently tried out their service, and honestly, they&apos;re pretty solid! Their tech team knows their stuff—quick fixes, smooth setups and all-around good support. As for their refurbished products? Total win. Everything I got was in great condition and worked perfectly Plus, it&apos;s budget-friendly, which is always a bonus. Their customer service was super friendly and helpful, answering all my random questions without a hitch. If you&apos;re looking for affordable tech solutions and solid service, I&apos;d definitely recommend checking them out.</h3>
                                         <div className="user-info">
-                                            <Image src="/assets/images/test1.png" alt="Customer Review | A&T Services Inc." title="Customer Review | A&T Services Inc." width={1000} height={1000} />
+                                            <Image src="/assets/images/test1.webp" alt="Customer Review | A&T Services Inc." title="Customer Review | A&T Services Inc." width={1000} height={1000} />
                                             <div>
                                                 <h4>Moses Jena</h4>
                                                 {/* <p>CEO Universal</p> */}
@@ -907,7 +907,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                                         <div className="stars">★★★★★</div>
                                         <h3>A& Tservices is very customer friendly and providing best quality products in reasonable price.there sales person or It person is very humble for their customers.</h3>
                                         <div className="user-info">
-                                            <Image src="/assets/images/test2.png" alt="Customer Review | A&T Services Inc." title="Customer Review | A&T Services Inc." width={1000} height={1000} />
+                                            <Image src="/assets/images/test2.webp" alt="Customer Review | A&T Services Inc." title="Customer Review | A&T Services Inc." width={1000} height={1000} />
                                             <div>
                                                 <h4>Fatma sara khan</h4>
                                                 {/* <p>CEO Universal</p> */}
@@ -920,7 +920,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                                         <div className="stars">★★★★★</div>
                                         <h3>Quality is very good of laptops and desktops. It&apos;s really good products.</h3>
                                         <div className="user-info">
-                                            <Image src="/assets/images/test3.png" alt="Customer Review | A&T Services Inc." title="Customer Review | A&T Services Inc." width={1000} height={1000} />
+                                            <Image src="/assets/images/test3.webp" alt="Customer Review | A&T Services Inc." title="Customer Review | A&T Services Inc." width={1000} height={1000} />
                                             <div>
                                                 <h4>Inderdeep Kaur</h4>
                                                 {/* <p>CEO Universal</p> */}
@@ -1076,7 +1076,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                     <div className="wrp-1">
                         <a href="">
                             {/* <p>CSR Initiatives</p>  */}
-                            <Image src="/assets/images/logo.png" width={70} height={70} alt='Logo | A&T Services Inc.' />
+                            <Image src="/assets/images/logo.webp" width={70} height={70} alt='Logo | A&T Services Inc.' />
                         </a>
                         <div className="social-wrp">
                             <a rel="nofollow" href="https://www.antservices.in/website/social/facebook" target="_blank">

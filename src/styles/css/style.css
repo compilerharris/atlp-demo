@@ -143,7 +143,7 @@ body {
 
 .category .counter-innr {
   background: linear-gradient(106deg, #FFF7F7 0%, #FFECEC 100%);
-  background-image: url('/assets/images/Cat1.png');
+  background-image: url('/assets/images/Cat1.webp');
   width: 100%;
   height: 350px;
   background-size: cover;
@@ -2746,7 +2746,7 @@ option {
 }
 
 .home-banner-slider .b1 {
-  background-image: url("../../../public/assets/images/banner.png");
+  background-image: url("../../../public/assets/images/banner.webp");
 }
 
 .home-banner-slider.owl-carousel .owl-dots {
@@ -2806,7 +2806,7 @@ option {
   }
 
   .home-banner-slider .b1 {
-    background-image: url("../../../public/assets/images/banner-01-mobile.jpg");
+    background-image: url("../../../public/assets/images/banner-01-mobile.webp");
   }
 
   .home-banner-slider.owl-theme .owl-nav [class*=owl-].owl-prev {
@@ -4806,7 +4806,7 @@ footer .branches-wrp p{
   position: relative;
   width: 100%;
   height: 100vh;
-  background: url('../../../public/assets/images/banner.png') no-repeat center center/cover;
+  background: url('../../../public/assets/images/banner.webp') no-repeat center center/cover;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -4966,7 +4966,7 @@ footer .branches-wrp p{
 }
 @media (max-width: 1023px) {
   .banner {
-    background: url('../../../public/assets/images/banner-01-mobile.jpg') no-repeat center center/cover;
+    background: url('../../../public/assets/images/banner-01-mobile.webp') no-repeat center center/cover;
     flex-direction: column-reverse;
     text-align: center;
     padding: 20px;
