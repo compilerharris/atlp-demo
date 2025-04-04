@@ -444,7 +444,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
             <nav className="navbar header">
                 <div className="navbar-brand">
                     <Link className="navbar-item hass-text-centered" href="/">
-                        <img src="/assets/images/logo.png" alt="Logo | A&T Services Inc."/>
+                        <Image src="/assets/images/logo.png" alt="Logo | A&T Services Inc." width={500} height={300}/>
                     </Link>
                 </div>
 
@@ -562,7 +562,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                                 <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button>
                             </div>
                         </div>
-                        <Image src="/assets/images/Server.png" alt="Server" width={500} height={300} className="laptop-image bannerOne topToDown" />
+                        <Image src="/assets/images/Server1.png" alt="Server" width={500} height={300} className="laptop-image bannerOne topToDown" />
                     </div>
                 </SwiperSlide>
                 

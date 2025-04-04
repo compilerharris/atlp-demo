@@ -1672,7 +1672,7 @@ option {
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: rotate(45deg);
+  /* transform: rotate(45deg); */
   transition: all 0.3s ease;
 }
 
@@ -1685,7 +1685,7 @@ option {
   display: inline-block;
   position: relative;
   z-index: 1;
-  transform: rotate(-45deg);
+  /* transform: rotate(-45deg); */
 }
 
 .play-btn-circle:hover{
