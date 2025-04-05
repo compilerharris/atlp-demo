@@ -597,6 +597,22 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                         <Image src="/assets/images/Dell-Optiplex-3040.webp" alt="Dell Optiplex 3040" width={500} height={300} className="laptop-image bannerOne topToDown" />
                     </div>
                 </SwiperSlide>
+
+                <SwiperSlide>
+                    {/* style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner4 : bannerImages.banner4})`, backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundSize: "cover"}} */}
+                    <div className="banner">
+                        <div className="text-content bannerTwoText">
+                            <h1 className="heading-02">Expert Laptop Replacement with 100% Original Parts</h1>
+                            <p className="p1">Screen, Keyboard, RAM, Battery, Fan & More – We Replace It All to Keep Your Work Uninterrupted</p>
+                            <p className="p2">Original parts Replacement <br /> Fast, reliable service by certified techs <br /> Affordable pricing, free diagnostics</p>
+                            <div>
+                                <button onClick={() => openContactForm("https://www.antservices.in/shop")} className="btn btn-red">SHOP NOW</button>
+                                <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button>
+                            </div>
+                        </div>
+                        <Image src="/assets/images/spare-parts.webp" alt="Dell Optiplex 3040" width={500} height={300} className="laptop-image bannerOne topToDown" />
+                    </div>
+                </SwiperSlide>
             </Swiper>
 
             {/* usp */}
@@ -963,8 +979,8 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                                     <input type="email" name="email" id="email" placeholder="Email Address" value={formData.email} onChange={handleChange} required />
                                 </div>
                                 <div className="formControl">
-                                    <input type="number" name="contact" id="contact" minLength={10} maxLength={10}
-                                        placeholder="Phone number" value={formData.contact} onChange={handleChange} required />
+                                    <input type="text" name="contact" id="contact" pattern="\d{10}" minLength={10} maxLength={10}
+                                        placeholder="Phone number" value={formData.contact} onChange={handleChange} required title="Please enter a valid 10-digit phone number" />
                                 </div>
                                 <div className="formControl">
                                     <input type="text" name="msg" id="msg"
