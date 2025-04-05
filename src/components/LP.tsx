@@ -444,7 +444,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
             <nav className="navbar header">
                 <div className="navbar-brand">
                     <Link className="navbar-item hass-text-centered" href="/">
-                        <Image src="/assets/images/logo.webp" alt="Logo | A&T Services Inc." width={500} height={300}/>
+                        <Image src="/assets/images/logo.webp" alt="Logo | A&T Services Inc." width={100} height={100} priority/>
                     </Link>
                 </div>
 
@@ -603,7 +603,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                     <div className="banner">
                         <div className="text-content bannerTwoText">
                             <h1 className="heading-02">Expert Laptop Replacement with 100% Original Parts</h1>
-                            <p className="p1">Screen, Keyboard, RAM, Battery, Fan & More – We Replace It All to Keep Your Work Uninterrupted</p>
+                            <p className="p1">Screen, Keyboard, RAM, Battery, Fan & More – We Replace Only Business series laptops</p>
                             <p className="p2">Original parts Replacement <br /> Fast, reliable service by certified techs <br /> Affordable pricing, free diagnostics</p>
                             <div>
                                 <button onClick={() => openContactForm("https://www.antservices.in/shop")} className="btn btn-red">SHOP NOW</button>
