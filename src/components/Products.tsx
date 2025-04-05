@@ -40,7 +40,7 @@ export default function Products({ products, openContactForm }: ProductsProps) {
               products.map((product: apiProductRes, index: number) => {
                 return (
                   <div className="card fade-in-anim" data-delay="0" key={index}>
-                    <Image src={`https://www.antservices.in${product.imagePath}`} width={1920} height={1000} alt={product.imageAltTitle} title={product.imageAltTitle} />
+                    <Image src={`https://www.antservices.in${product.imagePath}`} width={1920} height={1000} sizes="(max-width: 768px) 400px" alt={product.imageAltTitle} title={product.imageAltTitle} />
                     <p className="title">{product.title}</p>
                     <p className="price">₹ {product.price}</p>
                     <div className="cta">

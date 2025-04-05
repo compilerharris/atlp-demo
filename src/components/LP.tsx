@@ -444,7 +444,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
             <nav className="navbar header">
                 <div className="navbar-brand">
                     <Link className="navbar-item hass-text-centered" href="/">
-                        <Image src="/assets/images/logo.webp" alt="Logo | A&T Services Inc." width={100} height={100} priority/>
+                        <Image src="/assets/images/logo.webp" alt="Logo | A&T Services Inc." width={100} height={100} sizes="(max-width: 768px) 100px, 100px" priority/>
                     </Link>
                 </div>
 
@@ -610,7 +610,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                                 <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button>
                             </div>
                         </div>
-                        <Image src="/assets/images/spare-parts.webp" alt="Dell Optiplex 3040" width={500} height={300} className="laptop-image bannerOne topToDown" />
+                        <Image src="/assets/images/spare-parts-new.webp" alt="Dell Optiplex 3040" width={500} height={300} className="laptop-image bannerOne topToDown" />
                     </div>
                 </SwiperSlide>
             </Swiper>
@@ -698,7 +698,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                 <a href="https://www.youtube.com/embed/xcWIX0uGv7I" className="normal-video" data-fancybox="project_overview">
                     <div className="video-thumb active">
                         <div className="img-wrp ">
-                            <Image src="/assets/images/video-thumbnail.webp" width={1920} height={1000} className="thumb ls-is-cached" alt="Introductory Video Thumbnail | A&T Services Inc." title="Introductory Video Thumbnail | A&T Services Inc." />
+                            <Image src="/assets/images/video-thumbnail.webp" width={1920} height={1000} sizes="(max-width: 768px) 400px" className="thumb ls-is-cached" alt="Introductory Video Thumbnail | A&T Services Inc." title="Introductory Video Thumbnail | A&T Services Inc." />
                         </div>
                         <div className="play-btn-wrp anim_b_t_t_wrp anim_b_t_t">
                             <span className="play-btn-circle circle-fade-in is-gradient-fill"><span></span></span>
