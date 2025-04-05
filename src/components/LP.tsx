@@ -514,7 +514,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                             <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button>
                         </div>
                     </div>
-                    <Image src="/assets/images/laptop.webp" alt="Affordable & Trusted That’s A&T!" width={500} height={300} className="laptop-image floatAnim fadeInAnim" />
+                    <Image src="/assets/images/laptop.webp" alt="Affordable & Trusted That’s A&T!" width={500} height={300} priority className="laptop-image floatAnim fadeInAnim" />
                 </div>
                 </SwiperSlide>
                 
