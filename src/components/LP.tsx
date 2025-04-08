@@ -1142,9 +1142,9 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                             <a href="https://www.antservices.in/privacy-policy">Privacy Policy</a> -
                             <a href="https://www.antservices.in/blog">Blogs</a>
                         </div>
-                        <div className="poweredBy">
+                        {/* <div className="poweredBy">
                             <a href="https://www.linkedin.com/company/hardreload" target="_blank">Developed by HardReload</a>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </footer>
