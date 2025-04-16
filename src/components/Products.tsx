@@ -11,11 +11,11 @@ interface ProductsProps {
 
 export default function Products({ products, openContactForm }: ProductsProps) {
 
-  const redirectToWhatsapp = (productName: string) => {
-      const phoneNumber = '+919599090603';
-      const message = encodeURIComponent(`Hey A&T Services Inc. Team,\n\nI am interested to buy ${productName}.\n\nPlease provide more details.`);
-      window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
-  }
+  // const redirectToWhatsapp = (productName: string) => {
+  //     const phoneNumber = '+919599090603';
+  //     const message = encodeURIComponent(`Hey A&T Services Inc. Team,\n\nI am interested to buy ${productName}.\n\nPlease provide more details.`);
+  //     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+  // }
   
   return (
     <section className="products overview-section top-bottom-padding" id="products">
@@ -45,7 +45,8 @@ export default function Products({ products, openContactForm }: ProductsProps) {
                     <p className="price">₹ {product.price}</p>
                     <div className="cta">
                       <button onClick={() => openContactForm(`https://www.antservices.in${product.productPageUrl}`)} className="btn btn-red">Buy Now</button>
-                      <button onClick={()=>{redirectToWhatsapp(product.title)}} className="btn">Chat Now</button>
+                      <button onClick={()=>{ openContactForm(`https://www.antservices.in${product.productPageUrl}`) }} className="btn">Chat Now</button>
+                      {/* <button onClick={()=>{ redirectToWhatsapp(product.title) }} className="btn">Chat Now</button> */}
                     </div>
                   </div>
                 )

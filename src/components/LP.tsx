@@ -44,11 +44,11 @@ export default function LP({ products, categories }: { products: apiProductRes[]
     //     mBanner6: "/assets/images/banner-01-mobile.jpg",
     // }
 
-    const redirectToWhatsapp = (msg: string) => {
-        const phoneNumber = '+919599090603';
-        const message = encodeURIComponent(`${msg}`);
-        window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
-    }
+    // const redirectToWhatsapp = (msg: string) => {
+    //     const phoneNumber = '+919599090603';
+    //     const message = encodeURIComponent(`${msg}`);
+    //     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+    // }
 
     // whatsapp
     // const [showWAButton, setShowWAButton] = useState(false);
@@ -515,7 +515,8 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                         <div className="navbar-item">
                             <div className="field is-grouped">
                                 <p className="navbar-phone-icon control">
-                                    <a href="tel:+919599090603">
+                                    <a href="javascript:void(0)" onClick={() => openContactForm("/thankyou")}>
+                                    {/* <a href="tel:+919599090603"> */}
                                         <span className="call-icon">
                                             <Image src="/assets/images/call-icon.webp" alt="Call Icon | A&T Services Inc." width={10} height={10} />
                                         </span>
@@ -561,7 +562,8 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                             <p className="p2">Hassle-Free 1-Year Warranty <br /> Affordable Prices, No Hidden Costs <br /> Quick Support, Always Ready</p>
                             <div>
                                 <button onClick={() => openContactForm("https://www.antservices.in/shop")} className="btn btn-red">SHOP NOW</button>
-                                <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button>
+                                <button onClick={() => openContactForm("https://www.antservices.in/shop")} className="btn">CHAT NOW</button>
+                                {/* <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button> */}
                             </div>
                         </div>
                         <Image src="/assets/images/laptop.webp" alt="Affordable & Trusted That’s A&T!" width={500} height={300} priority className="laptop-image floatAnim fadeInAnim" />
@@ -577,7 +579,8 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                             <p className="p2">Apple M1 Chip – Superfast & efficient <br /> 13.3&quot; Retina Display – Stunning clarity <br /> Touch ID & Backlit Keyboard</p>
                             <div>
                                 <button onClick={() => openContactForm("https://www.antservices.in/shop/refurbished-macbook-air-2020-m1-545#attr=620,621,630")} className="btn btn-red">SHOP NOW</button>
-                                <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button>
+                                <button onClick={() => openContactForm("https://www.antservices.in/shop")} className="btn">CHAT NOW</button>
+                                {/* <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button> */}
                             </div>
                         </div>
                         <Image src="/assets/images/Macbook-Air-m1.webp" alt="Macbook Air m1" width={500} height={300} className="laptop-image bannerTwo topToDown" />
@@ -593,7 +596,8 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                             <p className="p2">Priority Corporate Support <br /> Enterprise-Grade Quality <br /> Customized for Your Needs</p>
                             <div>
                                 <button onClick={() => openContactForm("https://www.antservices.in/shop")} className="btn btn-red">SHOP NOW</button>
-                                <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button>
+                                <button onClick={() => openContactForm("https://www.antservices.in/shop")} className="btn">CHAT NOW</button>
+                                {/* <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button> */}
                             </div>
                         </div>
                         <Image src="/assets/images/laptop4.webp" alt="Laptop Collection" width={500} height={300} className="laptop-image bannerThree topToDown" />
@@ -609,7 +613,8 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                             <p className="p2">Dual Xeon 8-Core | 96GB RAM | 1TB SSD <br /> Built for Heavy Workloads <br /> Bulk Pricing & Custom Configurations</p>
                             <div>
                                 <button onClick={() => openContactForm("https://www.antservices.in/shop")} className="btn btn-red">SHOP NOW</button>
-                                <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button>
+                                <button onClick={() => openContactForm("https://www.antservices.in/shop")} className="btn">CHAT NOW</button>
+                                {/* <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button> */}
                             </div>
                         </div>
                         <Image src="/assets/images/Server1.webp" alt="Server" width={500} height={300} className="laptop-image bannerOne topToDown" />
@@ -625,7 +630,8 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                             <p className="p2">Top-Quality Refurbished Systems <br /> 1-Year On-Site Warranty <br /> Quick Support for Corporate Clients</p>
                             <div>
                                 <button onClick={() => openContactForm("https://www.antservices.in/shop/dell-latitude-5420-i5-11th-gen-1966#attr=888,891,1491")} className="btn btn-red">SHOP NOW</button>
-                                <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button>
+                                <button onClick={() => openContactForm("https://www.antservices.in/shop")} className="btn">CHAT NOW</button>
+                                {/* <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button> */}
                             </div>
                         </div>
                         <Image src="/assets/images/dell-latitude-5420.webp" alt="Dell Latitude 5420" width={500} height={300} className="laptop-image bannerOne topToDown" />
@@ -641,7 +647,8 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                             <p className="p2">Your Dream Desktop – Refurbished <br /> New Monitor, Keyboard, Mouse, RAM & SSD <br /> 1-Year Warranty – Affordable Price</p>
                             <div>
                                 <button onClick={() => openContactForm("https://www.antservices.in/shop")} className="btn btn-red">SHOP NOW</button>
-                                <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button>
+                                <button onClick={() => openContactForm("https://www.antservices.in/shop")} className="btn">CHAT NOW</button>
+                                {/* <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button> */}
                             </div>
                         </div>
                         <Image src="/assets/images/Dell-Optiplex-3040.webp" alt="Dell Optiplex 3040" width={500} height={300} className="laptop-image bannerOne topToDown" />
@@ -657,7 +664,8 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                             <p className="p2">Original parts Replacement <br /> Fast, reliable service by certified techs <br /> Affordable pricing, free diagnostics</p>
                             <div>
                                 <button onClick={() => openContactForm("https://www.antservices.in/shop")} className="btn btn-red">SHOP NOW</button>
-                                <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button>
+                                <button onClick={() => openContactForm("https://www.antservices.in/shop")} className="btn">CHAT NOW</button>
+                                {/* <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button> */}
                             </div>
                         </div>
                         <Image src="/assets/images/spare-parts-new.webp" alt="Dell Optiplex 3040" width={500} height={300} className="laptop-image bannerOne topToDown" />
@@ -1023,7 +1031,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                             <form id="enquirynow" onSubmit={handleSubmit} method="POST">
                                 <h4 className="eqTitle">Enquire Now</h4>
                                 <div className="formControl">
-                                    <input type="text" name="name" id="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
+                                    <input type="text" name="name" id="name" placeholder="Company Name" value={formData.name} onChange={handleChange} required />
                                 </div>
                                 <div className="formControl">
                                     <input type="email" name="email" id="email" placeholder="Email Address" value={formData.email} onChange={handleChange} required />
