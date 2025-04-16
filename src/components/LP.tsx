@@ -22,6 +22,8 @@ import { useRouter } from "next/navigation";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function LP({ products, categories }: { products: apiProductRes[]; categories: apiCategoryRes[] }) {
+    const [disableEnquire, setDisableEnquire] = useState(false);
+    const [disableWhatsApp, setDisableWhatsApp] = useState(false);
     const router = useRouter();
 
     // banner images
@@ -56,6 +58,70 @@ export default function LP({ products, categories }: { products: apiProductRes[]
     const [redirectTo, setRedirectTo] = useState("/thankyou");
     const [formSubmitted, setFormSubmitted] = useState(typeof window !== "undefined" && localStorage.getItem("formSubmitted") === "true");
     const popupInterval = useRef<NodeJS.Timeout | null>(null);
+
+    useEffect(() => {
+        // disable by google and facebook traffic
+        const referrer = document.referrer;
+        const urlParams = new URLSearchParams(window.location.search);
+        const source = urlParams.get('utm_source');
+
+        // Disable Enquire button if user came from Google
+        if (referrer.includes('google.com') || source === 'google') {
+            setDisableWhatsApp(true);
+        }
+
+        // Disable WhatsApp if user came from Facebook
+        if (referrer.includes('facebook.com') || source === 'fb') {
+            setDisableEnquire(true);
+        }
+
+        if (formSubmitted || disableEnquire) return; // Stop popup if form was submitted
+
+        // First popup appears after 5 seconds
+        const firstPopupTimeout = setTimeout(() => {
+            setIsOpen(true);
+        }, 5000);
+
+        // $(".enquire-button-fixed, .eq-btn-mobile, .dwnBro, .header .enquire-button, .brochure-btn").click(function () {
+        //     if(typeof disableEnquire === "undefined" || !disableEnquire){
+        //         $(".sec-eq").addClass("show");
+        //         $(".sec-eq").removeClass("static");
+        //     }
+        // });
+        const handleClick = (e: JQuery.ClickEvent) => {
+            if (!disableEnquire) {
+                $(".sec-eq").addClass("show").removeClass("static");
+            } else {
+                e.preventDefault(); // prevent showing popup
+            }
+        };
+
+        const buttons = $(".enquire-button-fixed, .eq-btn-mobile, .dwnBro, .header .enquire-button, .brochure-btn");
+
+        buttons.on("click", handleClick);
+
+        // for google traffic
+
+        if (disableWhatsApp) {
+            const hideWhatsApp = () => {
+              const waBtn = document.getElementById('df-btn-cont');
+      
+              if (waBtn) {
+                waBtn.style.display = 'none'; // Hides the button completely
+              } else {
+                // Retry if the widget hasn't loaded yet
+                setTimeout(hideWhatsApp, 1000);
+              }
+            };
+      
+            hideWhatsApp();
+        }
+
+        return () => {
+            clearTimeout(firstPopupTimeout);
+            buttons.off("click", handleClick);
+        }
+    }, [formSubmitted, disableEnquire, disableWhatsApp]);
 
     useEffect(() => {
         // setDeviceWidth(window.innerWidth);
@@ -93,11 +159,6 @@ export default function LP({ products, categories }: { products: apiProductRes[]
         $(".navbar-item").click(function () {
             $(".navbar-burger").removeClass("is-active");
             $(".navbar-menu").removeClass("is-active");
-        });
-
-        $(".enquire-button-fixed, .eq-btn-mobile, .dwnBro, .header .enquire-button, .brochure-btn").click(function () {
-            $(".sec-eq").addClass("show");
-            $(".sec-eq").removeClass("static");
         });
 
         $(".closeIcon").click(function () {
@@ -318,11 +379,11 @@ export default function LP({ products, categories }: { products: apiProductRes[]
         const handleWAScroll = () => {
             const button = document.getElementById("df-btn-cont");
             if (button) {
-              if (window.scrollY > 300) {
-                button.classList.add("show");
-              } else {
-                button.classList.remove("show");
-              }
+                if (window.scrollY > 300) {
+                    button.classList.add("show");
+                } else {
+                    button.classList.remove("show");
+                }
             }
         };
         window.addEventListener("scroll", handleWAScroll);
@@ -347,17 +408,6 @@ export default function LP({ products, categories }: { products: apiProductRes[]
         setRedirectTo(redirectTo)
         setIsOpen(true);
     }
-
-    useEffect(() => {
-        if (formSubmitted) return; // Stop popup if form was submitted
-
-        // First popup appears after 5 seconds
-        const firstPopupTimeout = setTimeout(() => {
-            setIsOpen(true);
-        }, 5000);
-
-        return () => clearTimeout(firstPopupTimeout);
-    }, [formSubmitted]);
 
     const closeContactPopup = () => {
         setIsOpen(false);
@@ -444,7 +494,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
             <nav className="navbar header">
                 <div className="navbar-brand">
                     <Link className="navbar-item hass-text-centered" href="/">
-                        <Image src="/assets/images/logo.webp" alt="Logo | A&T Services Inc." width={100} height={100} sizes="(max-width: 768px) 100px, 100px" priority/>
+                        <Image src="/assets/images/logo.webp" alt="Logo | A&T Services Inc." width={100} height={100} sizes="(max-width: 768px) 100px, 100px" priority />
                     </Link>
                 </div>
 
@@ -503,21 +553,21 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                 className="counter-wrp margin-t-1 anim_fade_in_wrp"
             >
                 <SwiperSlide>
-                {/* style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner6 : bannerImages.banner6})`, backgroundPosition: `${deviceWidth <= 1023 ? '20%' : 'center'}`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}} */}
-                <div className="banner">
-                    <div className="text-content">
-                        <h1 className="heading-02">Affordable & Trusted <br /> That’s A&T!</h1>
-                        <p className="p1">Your Partner in Quality Without Compromise!</p>
-                        <p className="p2">Hassle-Free 1-Year Warranty <br /> Affordable Prices, No Hidden Costs <br /> Quick Support, Always Ready</p>
-                        <div>
-                            <button onClick={() => openContactForm("https://www.antservices.in/shop")} className="btn btn-red">SHOP NOW</button>
-                            <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button>
+                    {/* style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner6 : bannerImages.banner6})`, backgroundPosition: `${deviceWidth <= 1023 ? '20%' : 'center'}`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}} */}
+                    <div className="banner">
+                        <div className="text-content">
+                            <h1 className="heading-02">Affordable & Trusted <br /> That’s A&T!</h1>
+                            <p className="p1">Your Partner in Quality Without Compromise!</p>
+                            <p className="p2">Hassle-Free 1-Year Warranty <br /> Affordable Prices, No Hidden Costs <br /> Quick Support, Always Ready</p>
+                            <div>
+                                <button onClick={() => openContactForm("https://www.antservices.in/shop")} className="btn btn-red">SHOP NOW</button>
+                                <button onClick={() => redirectToWhatsapp(`Hey A&T Services Inc. Team,\n\nPlease provide more details.`)} className="btn">CHAT NOW</button>
+                            </div>
                         </div>
+                        <Image src="/assets/images/laptop.webp" alt="Affordable & Trusted That’s A&T!" width={500} height={300} priority className="laptop-image floatAnim fadeInAnim" />
                     </div>
-                    <Image src="/assets/images/laptop.webp" alt="Affordable & Trusted That’s A&T!" width={500} height={300} priority className="laptop-image floatAnim fadeInAnim" />
-                </div>
                 </SwiperSlide>
-                
+
                 <SwiperSlide>
                     {/* style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner2 : bannerImages.banner2})`, backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundSize: "cover"}} */}
                     <div className="banner">
@@ -533,7 +583,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                         <Image src="/assets/images/Macbook-Air-m1.webp" alt="Macbook Air m1" width={500} height={300} className="laptop-image bannerTwo topToDown" />
                     </div>
                 </SwiperSlide>
-                
+
                 <SwiperSlide>
                     {/* style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner3 : bannerImages.banner3})`, backgroundPosition: `${deviceWidth <= 1023 ? '20%' : 'center'}`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}} */}
                     <div className="banner">
@@ -549,7 +599,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                         <Image src="/assets/images/laptop4.webp" alt="Laptop Collection" width={500} height={300} className="laptop-image bannerThree topToDown" />
                     </div>
                 </SwiperSlide>
-                
+
                 <SwiperSlide>
                     {/* style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner5 : bannerImages.banner5})`, backgroundPosition: `${deviceWidth <= 1023 ? '20%' : 'center'}`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}} */}
                     <div className="banner">
@@ -565,8 +615,8 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                         <Image src="/assets/images/Server1.webp" alt="Server" width={500} height={300} className="laptop-image bannerOne topToDown" />
                     </div>
                 </SwiperSlide>
-                
-                <SwiperSlide>   
+
+                <SwiperSlide>
                     {/* style={{backgroundImage: `url(${deviceWidth <= 1023 ? bannerImages.mBanner1 : bannerImages.banner1})`, backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundSize: "cover"}} */}
                     <div className="banner">
                         <div className="text-content">
@@ -646,7 +696,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                             }}
                             className="counter-wrp margin-t-1 anim_fade_in_wrp swiper-dot"
                         >
-                                {/* <div className="counter-innr">
+                            {/* <div className="counter-innr">
                                     <p className="p1 is-white">1</p>
                                     <p className="p2 para-01 is-white font-300-space-0">Year Warranty</p>
                                 </div> */}
