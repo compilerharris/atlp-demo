@@ -73,7 +73,7 @@ export default function RootLayout({
         </ noscript>
         {children}
         {/* whatsapp widget */}
-          <Script src="https://d2jyl60qlhb39o.cloudfront.net/integration-plugin.js" id="wa-widget" widget-id="HHhzjs" />
+          {/* <Script src="https://d2jyl60qlhb39o.cloudfront.net/integration-plugin.js" id="wa-widget" widget-id="HHhzjs" /> */}
         {/* whatsapp widget end */}
       </body>
     </html>

@@ -90,12 +90,13 @@ export default function LP({ products, categories }: { products: apiProductRes[]
         //         $(".sec-eq").removeClass("static");
         //     }
         // });
-        const handleClick = (e: JQuery.ClickEvent) => {
-            if (!disableEnquire) {
+        // const handleClick = (e: JQuery.ClickEvent) => {
+        const handleClick = () => {
+            // if (!disableEnquire) {
                 $(".sec-eq").addClass("show").removeClass("static");
-            } else {
-                e.preventDefault(); // prevent showing popup
-            }
+            // } else {
+            //     e.preventDefault(); // prevent showing popup
+            // }
         };
 
         const buttons = $(".enquire-button-fixed, .eq-btn-mobile, .dwnBro, .header .enquire-button, .brochure-btn");
@@ -1212,7 +1213,8 @@ export default function LP({ products, categories }: { products: apiProductRes[]
             {/* footer end */}
 
             <div className="eq-btn-mobile">Enquire Now</div>
-            <a href="tel:+919599090603" className="call-btn-mobile"><span>+91 95 9909 0603</span></a>
+            <a  href="javascript:void(0)" onClick={() => openContactForm("/thankyou")} className="call-btn-mobile"><span>+91 95 9909 0603</span></a>
+            {/* <a href="tel:+919599090603" className="call-btn-mobile"><span>+91 95 9909 0603</span></a> */}
         </>
     );
 }
