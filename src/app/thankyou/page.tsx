@@ -1,8 +1,18 @@
 "use client"
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function ThankYou() {
     const router = useRouter();
+
+    useEffect(() => {
+      const timeout = setTimeout(() => {
+        const redirectUrl = localStorage.getItem('redirectTo');
+          router.push(redirectUrl || "https://antservices.in");
+      }, 5000); // 5 seconds
+  
+      return () => clearTimeout(timeout); // cleanup on unmount
+    }, []);
 
     const redirectToHome = (e: React.MouseEvent<HTMLAnchorElement>) => {
         e.preventDefault();

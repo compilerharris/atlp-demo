@@ -50,7 +50,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
 
     // contact us
     const [isOpen, setIsOpen] = useState(false);
-    const [redirectTo, setRedirectTo] = useState("/thankyou");
+    // const [redirectTo, setRedirectTo] = useState("/thankyou");
     const [formSubmitted, setFormSubmitted] = useState(typeof window !== "undefined" && localStorage.getItem("formSubmitted") === "true");
     const popupInterval = useRef<NodeJS.Timeout | null>(null);
     const [utmSource, setUtmSource] = useState<string | null>("");
@@ -374,7 +374,8 @@ export default function LP({ products, categories }: { products: apiProductRes[]
     // contact form
 
     const openContactForm = (redirectTo: string) => {
-        setRedirectTo(redirectTo)
+        // setRedirectTo(redirectTo)
+        localStorage.setItem("redirectTo",redirectTo)
         setIsOpen(true);
     }
 
@@ -445,7 +446,8 @@ export default function LP({ products, categories }: { products: apiProductRes[]
                     clearInterval(popupInterval.current);
                     popupInterval.current = null;
                 }
-                router.push(redirectTo || "/thankyou");
+                router.push("/thankyou");
+                // router.push(redirectTo || "/thankyou");
             } else {
                 console.log(data.message || "Something went wrong. Please try again.");
             }
