@@ -53,13 +53,13 @@ export default function LP({ products, categories }: { products: apiProductRes[]
     // const [redirectTo, setRedirectTo] = useState("/thankyou");
     const [formSubmitted, setFormSubmitted] = useState(typeof window !== "undefined" && localStorage.getItem("formSubmitted") === "true");
     const popupInterval = useRef<NodeJS.Timeout | null>(null);
-    const [utmSource, setUtmSource] = useState<string | null>("");
+    // const [utmSource, setUtmSource] = useState<string | null>("");
 
     useEffect(() => {
         // disable by google and facebook traffic
-        const urlParams = new URLSearchParams(window.location.search);
-        const source = urlParams.get('utm_source');
-        setUtmSource(source);
+        // const urlParams = new URLSearchParams(window.location.search);
+        // const source = urlParams.get('utm_source');
+        // setUtmSource(source);
         if (formSubmitted) return; // Stop popup if form was submitted
 
         // First popup appears after 5 seconds
@@ -417,7 +417,7 @@ export default function LP({ products, categories }: { products: apiProductRes[]
         formD.append('contact', formData.contact)
         formD.append('email', formData.email)
         formD.append('requirement', formData.msg)
-        formD.append('utm_source', utmSource || '')
+        // formD.append('utm_source', utmSource || '')
 
         try {
             // const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL_LIVE}/post_contact_us`, {
